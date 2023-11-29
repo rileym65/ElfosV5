@@ -1,0 +1,56 @@
+Elf/OS is a simple disk operating system for CDP1802 Elf-class computers.
+It was initially released as version 0.1 back on June 29, 2004.  Since then
+it has seen semi constant improvements for almost the last 20 years, with
+the last release of 4.1.1 on April 26, 2022.  Since then health/age has
+caused me to mostly retire from the 1802 scene, but that has not stopped
+my work with the 1802.
+
+At this point Elf/Os v5 is in final testing and will soon be released.  This
+document summarizes the changes in Elf/OS v5.
+
+  1. The directory walker has been decoupled from the file API.  Directory
+     searches no longer rely on o_open and o_read for searching directores.
+     Now directory searches occur on the raw sector data which greatly
+     improves performance of diretory searches.
+
+  2. The binary loader has also been decoupled from the file API.  Like
+     the directory walker, the binary loader now reads data from the raw
+     sectors, this vastly improves the performance of program loads.
+
+  3. The file API o_read and o_write have been rewritten to improve
+     performance.
+
+  4. With the changes made to the directory walker and binary loader, 1k
+     of internal buffer space was no longer needed, freeing up memory to
+     provide native support for filesystem type II, with its 32-bit LAT it
+     can now support disks larger than 268mb.  With the 32-bit LAT entries
+     the full 28-bit sector addresses of IDE are now available to Elf/OS,
+     allowing disks of up to 136gb to be usable by Elf/OS v5.
+
+Elf/OS v5 is a nearly complete rewrite of the main kernel codebase. about 98%
+of the code in the kernel is newly written.  The v5 kernel was first protoyped
+in c and then hand converted to assembly language.  The c prototype will be
+used to create a new version of disktool, which will be capable of working
+on both type I and type II filesystems.  The old version of disktool will
+not read type II filesystems.
+
+Here is some performance comparisons between v4 and v5.  In both cases the
+test was performed on a machine running with a 2mhz clock.  The time is
+the time between pressing enter for the command to when the program first
+starts to display outout on the terminal:
+
+                                Seconds
+   Program        Siz e         V4       V5
+   LEM          16,805       20.76     1.20
+   ZRUN3/Zork1   5,629       25.72     4.63
+   PILOT/maze.p  6,280       23.66     6.70  maze.p size: 4,736
+   RcBasicL2     6,823        9.09     0.67
+
+In the above performance tests, the same disk image was used for both
+tests, only the kernel being booted changed between the tests.
+
+At this time there are no plans to make a conversion program to convert
+type I filesystems to type II, so to use a type II filesystem you will 
+need to build a new disk from scratch.  However, after I am done with
+the initial release, I may revisit the idea of a converter.
+
