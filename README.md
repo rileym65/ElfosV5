@@ -6,16 +6,17 @@ to house all materials for Elf/OS v5.  Keep an eye on this repostiry for
 any news or updates concerning Elf/OS v5.
 
 Status as of 12/4/2023:
-  The kernel has passed initial testing is pretty much ready for beta release
+
+  The kernel has passed initial testing and is pretty much ready for beta release
 
   The files that touch dirents: dir, touch, and chmod have had new version 
   made for Elf/OS v5
 
   I have working C-based setup programs that can create new disk images with
-  Elf/OS v5 and basic tools installed (still would need to extract basetools5.blr)
+  Elf/OS v5 and basic tools installed (still would need to extract basetools5.lbr)
 
-  I have a working 1802 assembly installer now for type I filesystems, and will ahve
-  an 1802 asembly for type II within the next day or two
+  I have a working 1802 assembly installer now for type I filesystems, and will have
+  an 1802 assembly for type II within the next day or two
 
   With the installers it should be possible to install brand new disks with Elf/OS 5,
   using type II, up to 136gb disks can now be used.
