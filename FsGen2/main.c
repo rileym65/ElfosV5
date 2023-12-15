@@ -220,7 +220,7 @@ int main(int argc, char** argv) {
   printf("FsGenv5 - FsType II\n\n");
 
   if (argc != 2) {
-    printf("Usage: fsgen2 sizeInMB\n");
+    printf("Usage: fsgen1 sizeInMB\n");
     exit(1);
     }
 
