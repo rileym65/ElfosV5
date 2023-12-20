@@ -5,7 +5,7 @@ With the demise of elf-emulation.com I have created this GitHub repository
 to house all materials for Elf/OS v5.  Keep an eye on this repository for
 any news or updates concerning Elf/OS v5.
 
-Status as of 12/6/2023:
+Status as of 12/20/2023:
 
   All files currently posted are considered preliminary.  These files
 have not been 100% tested, as such be sure to have a backup of your 
@@ -34,6 +34,8 @@ Files:
                     (LAT-32)
 
   FixDir/         - PC-based direcotry adjuster for prior Elf/OS versions.
+
+  kernel.118      - build 118 of Elf/OS 5 kernel
 
 Notes:
 
