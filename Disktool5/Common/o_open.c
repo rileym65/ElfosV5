@@ -20,6 +20,7 @@ byte o_open(char* filename, word fildes, byte flags) {
   addr = findDirent(filename);
   dflags = ram[addr+6];
   if (cpu.df != 0) {
+printf("Failed to find dirent\n");
     if ((flags & 1) == 0) return 0x0c;
     strcpy(dir, filename);
     name = splitPath(dir);
@@ -50,6 +51,15 @@ byte o_open(char* filename, word fildes, byte flags) {
   au = (ram[addr+0] << 24) | (ram[addr+1] << 16) |
        (ram[addr+2] << 8) | ram[addr+3];
   sec = au << 3;
+
+// for (i=0; i<32; i++) printf("%02x ",ram[addr+i]); printf("\n");
+// printf("Addr  :  %04x\n", addr);
+// printf("Flags :  %02x\n", dflags);
+// printf("EOF   :  %04x\n", eof);
+// printf("DirSec:  %08x\n", dirsec);
+// printf("DirOfs:  %04x\n", dirofs);
+// printf("AU    :  %08x\n", au);
+// printf("Sec   :  %08x\n", sec);
 
   if (((dirent[6] & 4) != 0) && ((flags & 16) == 0)) return 0x01;
   if (((dirent[6] & 1) != 0) && ((flags & 32) == 0)) return 0x12;
