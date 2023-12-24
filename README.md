@@ -35,7 +35,15 @@ Files:
 
   FixDir/         - PC-based direcotry adjuster for prior Elf/OS versions.
 
-  kernel.118      - build 118 of Elf/OS 5 kernel
+  kernel.xxx      - Latest build of Elf/OS 5 kernel
+
+  chmod.xxxx      - v5 version of chmod
+
+  dir.xxxx        - v5 version of dir
+
+  touch.xxxx      - v5 version of touch
+
+  prepv5.xxxx     - program to prepare v4 disk for use with v5
 
 Notes:
 
