@@ -182,7 +182,7 @@ void cmd_copy(char* buffer) {
   word direntS;
   word direntD;
   char src[128];
-  char tmp[256];
+  byte tmp[256];
   pos = 0;
   while (*buffer != 0 && *buffer != ' ') src[pos++] = *buffer++;
   src[pos] = 0;
@@ -199,8 +199,8 @@ void cmd_copy(char* buffer) {
     }
 
   else if (*buffer == '[' && *src != '[') {
-    strcpy(tmp, buffer+1);
-    strcpy(buffer, tmp);
+    strcpy((char*)tmp, buffer+1);
+    strcpy(buffer, (char*)tmp);
     for (i=0; i<strlen(buffer); i++)
       if (buffer[i] == ']') buffer[i] = 0;
     fileD = open(buffer, O_CREAT | O_TRUNC | O_WRONLY, 0666);
@@ -229,8 +229,8 @@ void cmd_copy(char* buffer) {
     }
 
   else if (*buffer != '[' && *src == '[') {
-    strcpy(tmp, src+1);
-    strcpy(src, tmp);
+    strcpy((char*)tmp, src+1);
+    strcpy(src, (char*)tmp);
     for (i=0; i<strlen(src); i++)
       if (src[i] == ']') src[i] = 0;
     fileS = open(src, O_RDONLY);
@@ -462,6 +462,14 @@ void cmd_chain(char* buffer) {
   printf("\n");
   }
 
+void cmd_showAu(char* buffer) {
+  dword au;
+  getNumber(buffer, &au);
+  au = readLump(au);
+  printf("%x ",au);
+  printf("\n");
+  }
+
 void cmd_n() {
   currentSector++;
   d_ideread(currentSector, 0x500);
@@ -475,7 +483,6 @@ void cmd_p() {
   }
 
 void cmd_qm() {
-  d_ideread(currentSector, 0x500);
   dumpSector(0x500);
   }
 
@@ -648,26 +655,80 @@ void cmd_hexdump(char* path) {
   printf("\n");
   }
 
+void cmd_ex(char* buffer) {
+  int addr;
+  int v;
+  buffer = getNumber(buffer, &addr);
+  if (addr < 0 || addr > 511) {
+    printf("Invalid address\n");
+    return;
+    }
+  while (*buffer == ' ') buffer++;
+  while (*buffer != 0) {
+    buffer = getNumber(buffer, &v);
+    if (addr < 512) {
+      ram[0x500+addr] = v;
+      }
+    addr++;
+    while (*buffer == ' ') buffer++;
+    }
+  }
+
+
+void cmd_wrsec() {
+  d_idewrite(currentSector, 0x500);
+  }
+
+void openDisk() {
+  int i;
+  disk = open(diskName, O_RDWR);
+  if (disk < 0) {
+    perror("Error opening disk");
+    exit(1);
+    }
+  readSysSec(0);
+  fstype = ram[DTA+0x104];
+  printf("Filesystem type: %d\n", fstype);
+  for (i=0; i<7; i++) {
+    ram[CWD_LUMP+i] = ram[DTA+0x12c+i];
+    ram[MD_LUMP+i] = ram[DTA+0x12c+i];
+    }
+  strcpy(cwd,"/");
+  }
+
+void cmd_mount(char* buffer) {
+  close(disk);
+  strcpy(diskName, buffer);
+  openDisk();
+  }
+
 void cmd_help() {
-  printf("au n           - Load AU n\n");
-  printf("chain au       - Show shown starting with au\n");
-  printf("chdir path     - Change working directory\n");
-  printf("chmod opt file - Change options on a file\n");
-  printf("delete file    - Delete file\n");
-  printf("dir            - Show current directory\n");
-  printf("dir path       - Show directory of path\n");
-  printf("free           - Show number of free AUs\n");
-  printf("hexdump file   - Show hex dump of file\n");
-  printf("mkdir path     - Make directory\n");
-  printf("n              - Next sector\n");
-  printf("p              - Previous sector\n");
-  printf("rename old new - Rename file\n");
-  printf("rmdir path     - Remove directory\n");
-  printf("sector n       - Load sector n\n");
-  printf("stat           - Show disk statistics\n");
-  printf("touch file     - Update date/time on file\n");
-  printf("type file      - Type contents of file\n");
-  printf("?              - Dump current sector\n");
+  printf("!addr nn nn ... - Write bytes to disk buffer\n");
+  printf("?au num         - Show value of specified AU\n");
+  printf("au n            - Load AU n\n");
+  printf("chain au        - Show shown starting with au\n");
+  printf("chdir path      - Change working directory\n");
+  printf("chmod opt file  - Change options on a file\n");
+  printf("copy src dst    - Copy a file\n");
+  printf("delete file     - Delete file\n");
+  printf("dir             - Show current directory\n");
+  printf("dir path        - Show directory of path\n");
+  printf("free            - Show number of free AUs\n");
+  printf("fsck            - Perform file system check\n");
+  printf("hexdump file    - Show hex dump of file\n");
+  printf("mkdir path      - Make directory\n");
+  printf("mount diskfile  - Mount a new disk file\n");
+  printf("n               - Next sector\n");
+  printf("p               - Previous sector\n");
+  printf("pwd             - Print working directory\n");
+  printf("rename old new  - Rename file\n");
+  printf("rmdir path      - Remove directory\n");
+  printf("sector n        - Load sector n\n");
+  printf("stat            - Show disk statistics\n");
+  printf("touch file      - Update date/time on file\n");
+  printf("type file       - Type contents of file\n");
+  printf("wrsec           - Write sector buffer back to disk\n");
+  printf("?               - Dump current sector\n");
   }
 
 extern void doCommand(char* buffer);
@@ -687,16 +748,22 @@ void cmd_do(char* filename) {
   }
 
 void doCommand(char* buffer) {
+  if (buffer[0] == '!') cmd_ex(buffer+1);
+  if (strncmp(buffer,"?au ",4) == 0) cmd_showAu(buffer+4);
   if (strcmp(buffer,"quit") == 0) strcpy(buffer,"exit");
   if (strcmp(buffer,"heap") == 0) cmd_heap();
   if (strcmp(buffer,"cd") == 0) printf("%s\n", cwd);
   if (strcmp(buffer,"chdir") == 0) printf("%s\n", cwd);
   if (strncmp(buffer,"cd ", 3) == 0) cmd_chdir(buffer+3);
   if (strncmp(buffer,"chdir ", 6) == 0) cmd_chdir(buffer+6);
+  if (strcmp(buffer,"ls") == 0) cmd_dir();
+  if (strncmp(buffer,"ls ", 3) == 0) cmd_dirs(buffer+3);
   if (strcmp(buffer,"dir") == 0) cmd_dir();
   if (strncmp(buffer,"dir ", 4) == 0) cmd_dirs(buffer+4);
+  if (strncmp(buffer,"del ", 4) == 0) cmd_delete(buffer+4);
   if (strncmp(buffer,"delete ", 7) == 0) cmd_delete(buffer+7);
   if (strncmp(buffer,"rename ", 7) == 0) cmd_rename(buffer+7);
+  if (strncmp(buffer,"rm ", 3) == 0) cmd_delete(buffer+3);
   if (strncmp(buffer,"rmdir ", 6) == 0) cmd_rmdir(buffer+6);
   if (strncmp(buffer,"mkdir ", 6) == 0) cmd_mkdir(buffer+6);
   if (strncmp(buffer,"sector ", 7) == 0) cmd_sector(buffer+7);
@@ -705,6 +772,7 @@ void doCommand(char* buffer) {
   if (strcmp(buffer,"n") == 0) cmd_n();
   if (strcmp(buffer,"p") == 0) cmd_p();
   if (strcmp(buffer,"?") == 0) cmd_qm();
+  if (strcmp(buffer,"pwd") == 0) printf("%s\n", cwd);
   if (strcmp(buffer,"/") == 0) strcpy(buffer,"exit");
   if (strcmp(buffer,"help") == 0) cmd_help();
   if (strcmp(buffer,"free") == 0) cmd_free();
@@ -713,8 +781,12 @@ void doCommand(char* buffer) {
   if (strncmp(buffer,"hexdump ", 8) == 0) cmd_hexdump(buffer+8);
   if (strncmp(buffer,"chmod ", 6) == 0) cmd_chmod(buffer+6);
   if (strncmp(buffer,"touch ", 6) == 0) cmd_touch(buffer+6);
+  if (strncmp(buffer,"cp ", 3) == 0) cmd_copy(buffer+3);
   if (strncmp(buffer,"copy ", 5) == 0) cmd_copy(buffer+5);
   if (strncmp(buffer,"do ", 3) == 0) cmd_do(buffer+3);
+  if (strcmp(buffer,"wrsec") == 0) cmd_wrsec(buffer+3);
+  if (strcmp(buffer,"fsck") == 0) cmd_fsck();
+  if (strncmp(buffer,"mount ", 6) == 0) cmd_mount(buffer+6);
   }
 
 int main(int argc, char** argv) {
@@ -723,12 +795,23 @@ int main(int argc, char** argv) {
   int result;
   int fildes;
   char   buffer[65535];
-  char   buffer2[1024];
-  char   buffer3[1024];
-  char  *file;
 
-  printf("DiskTool v5\n");
-  disk = open("disk1.ide", O_RDWR);
+  strcpy(diskName, "disk1.ide");
+
+  i = 1;
+  while (i<argc) {
+    if (strcmp(argv[i], "-d") == 0) {
+      i++;
+      strcpy(diskName, argv[i]);
+      }
+    i++;
+    }
+
+  disk = open(diskName, O_RDWR);
+  if (disk < 0) {
+    perror("Error opening disk");
+    exit(1);
+    }
 
   fildes = 0x2000;
   ram[fildes+4] = 0x30;
@@ -742,16 +825,15 @@ int main(int argc, char** argv) {
   himem = 20000;
   currentSector = 0;
 
-  readSysSec(0);
-  fstype = ram[DTA+0x104];
-  for (i=0; i<7; i++) {
-    ram[CWD_LUMP+i] = ram[DTA+0x12c+i];
-    ram[MD_LUMP+i] = ram[DTA+0x12c+i];
-    }
-  printf("\n");
+  openDisk();
+//  readSysSec(0);
+//  fstype = ram[DTA+0x104];
+//  printf("Filesystem type: %d\n", fstype);
+//  for (i=0; i<7; i++) {
+//    ram[CWD_LUMP+i] = ram[DTA+0x12c+i];
+//    ram[MD_LUMP+i] = ram[DTA+0x12c+i];
+//    }
   
-//  cmd_setdef("/bin/");
-
   strcpy(buffer, "");
   while (strcmp(buffer,"exit") != 0) {
     printf("\n>");

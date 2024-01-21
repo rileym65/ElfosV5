@@ -3,5 +3,9 @@
 
 #include "../Common/header.h"
 
+LINK char diskName[256];
+
+extern void cmd_fsck();
+
 #endif
 

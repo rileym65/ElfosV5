@@ -1,6 +1,6 @@
-PROJECT=disktool5
+PROJECT=disktool
 CC=gcc
-DEFS=
+DEFS= -Wall
 INCDIR=
 INCS=
 LIBDIR=
@@ -44,6 +44,7 @@ OBJS=\
 	../Common/writelump.o \
 	../Common/writesyssec.o \
 	../Common/zerolump.o \
+	fsck.o \
 	main.o
 
 $(PROJECT): $(OBJS)
@@ -55,6 +56,10 @@ $(PROJECT): $(OBJS)
 clean:
 	-rm *.o
 	-rm $(PROJECT)
+
+install:
+	cp $(PROJECT) /usr/local/bin
+	chmod a+x /usr/local/bin/$(PROJECT)
 
 main.o:      header.h main.c
 

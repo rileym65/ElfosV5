@@ -1,0 +1,41 @@
+disktool [options]
+
+  -d name        - Name of disk to open
+
+  !addr nn nn ...    - Write data to sector buffer
+  ?                  - Display sector buffer
+  ?au num            - Show value of specified AU
+  /                  - Exit disktool
+  au num             - Load first sector of specified AU
+  cd [path]          - Synonym for chdir
+  chain num          - Show AU chain starting with AU num
+  chdir [path]       - Change/show current directory
+  chmod [flags] file - Change flags on specified file
+  copy src dst       - Copy file
+  cp src dst         - Synonym for copy
+  del path           - Synonym for delete
+  delete path        - Delete a file
+  dir [path]         - Show directory
+  do script          - Execute specified script file
+  exit               - Exit disktool
+  free               - Show count of free AUs
+  fsck               - Perform filesystem check
+  help               - show list of commands
+  hexdump file       - Show hexdump of specified file
+  ls [path]          - Synonym for dir
+  mkdir path         - Make directory
+  mount diskfile     - Mount a different disk
+  n                  - Load next sector
+  p                  - Load previous sector
+  pwd                - Print Working Directory
+  quit               - Exit disktool
+  rename src dst     - Rename a file
+  rm path            - Synonym for delete
+  rmdir path         - remove directory
+  sector num         - Load specified sector
+  stat               - Show disk stats
+  touch file         - Update datetime on specified file
+  type file          - Display contents of file
+  wrsec              - Write sector buffer back to disk
+
+
