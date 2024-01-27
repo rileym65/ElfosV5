@@ -247,7 +247,7 @@ int main(int argc, char** argv) {
   printf("LAT Sectors: %d\n",latSectors);
   printf("LAT AUs    : %d\n",latAus);
 
-  disk = open("disk1.ide", O_RDWR | O_TRUNC | O_CREAT, 0660);
+  disk = open("disk1.ide", O_RDWR | O_TRUNC | O_CREAT | O_BINARY, 0660);
   if (disk < 0) {
     perror("Could not create disk file");
     exit(1);

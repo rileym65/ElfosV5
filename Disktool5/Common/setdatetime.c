@@ -1,10 +1,24 @@
 #include <time.h>
+#ifndef _MSC_VER
 #include <sys/time.h>
+#endif
 #include "header.h"
 
 void setDateTime(word dirent) {
   word d;
   word t;
+#ifdef _MSC_VER
+  struct tm *ptm;
+  time_t now;
+  now = time(NULL);
+  ptm = localtime(&now);
+  ram[K_MONTH] = ptm->tm_mon + 1;
+  ram[K_DAY] = ptm->tm_mday;
+  ram[K_YEAR] = ptm->tm_year + 1900 - 1972;
+  ram[K_HOUR] = ptm->tm_hour;
+  ram[K_MINUTE] = ptm->tm_min;
+  ram[K_SECOND] = ptm->tm_sec;
+#else
   struct tm dt;
   time_t tim;
   tim = time(NULL);
@@ -15,6 +29,7 @@ void setDateTime(word dirent) {
   ram[K_HOUR] = dt.tm_hour;
   ram[K_MINUTE] = dt.tm_min;
   ram[K_SECOND] = dt.tm_sec;
+#endif
   d= (ram[K_MONTH] & 0x0f) << 5;
   d|= (ram[K_DAY] & 0x1f);
   d|= (ram[K_YEAR] & 0x7f) << 9;

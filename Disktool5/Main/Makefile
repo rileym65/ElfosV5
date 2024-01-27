@@ -51,11 +51,11 @@ $(PROJECT): $(OBJS)
 	$(CC) $(DEFS) $(LIBDIR) $(OBJS) $(LIBS) -o $(PROJECT)
 
 .c.o:
-	$(CC) $(DEFS) $(INCDIR) $(INCS) -c $<
+	$(CC) $(DEFS) $(INCDIR) $(INCS) -c $< -o $@
 
 clean:
-	-rm *.o
-	-rm $(PROJECT)
+	-rm -f $(OBJS)
+	-rm -f $(PROJECT)
 
 install:
 	cp $(PROJECT) /usr/local/bin

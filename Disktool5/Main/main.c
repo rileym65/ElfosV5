@@ -3,9 +3,21 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/fcntl.h>
 #include <time.h>
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+
+#ifdef _MSC_VER
+// [RLA] Windows MSVC version ...
+#include <stdint.h>
+#else
+// [RLA] Linux version ...
+#include <sys/fcntl.h>
+#include <unistd.h>
+#endif
 
 char* getNumber(char* buffer, int* dest) {
   int ret;
@@ -203,7 +215,7 @@ void cmd_copy(char* buffer) {
     strcpy(buffer, (char*)tmp);
     for (i=0; i<strlen(buffer); i++)
       if (buffer[i] == ']') buffer[i] = 0;
-    fileD = open(buffer, O_CREAT | O_TRUNC | O_WRONLY, 0666);
+    fileD = open(buffer, O_CREAT | O_TRUNC | O_WRONLY | O_BINARY, 0666);
     if (fileD < 0) {
       printf("Could not open %s\n", buffer);
       return;
@@ -233,7 +245,7 @@ void cmd_copy(char* buffer) {
     strcpy(src, (char*)tmp);
     for (i=0; i<strlen(src); i++)
       if (src[i] == ']') src[i] = 0;
-    fileS = open(src, O_RDONLY);
+    fileS = open(src, O_RDONLY | O_BINARY);
     if (fileS < 0) {
       printf("Could not open %s\n", src);
       return;
@@ -353,8 +365,6 @@ void cmd_chmod(char* buffer) {
 
 void cmd_touch(char* buffer) {
   int hour,minute,second,month,day,year;
-  struct tm dt;
-  time_t esec;
   word addr;
   addr = findDirent(buffer);
   if (cpu.df != 0) {
@@ -362,6 +372,20 @@ void cmd_touch(char* buffer) {
     return;
     }
   ram[addr+6] |= 16;
+#ifdef _MSC_VER
+  struct tm* ptm;
+  time_t now;
+  now = time(NULL);
+  ptm = localtime(&now);
+  hour = ptm->tm_hour;
+  minute = ptm->tm_min;
+  second = ptm->tm_sec;
+  month = ptm->tm_mon + 1;
+  day = ptm->tm_mday;
+  year = ptm->tm_year + 1900 - 1972;
+#else
+  struct tm dt;
+  time_t esec;
   esec = time(NULL);
   localtime_r(&esec, &dt);
   hour = dt.tm_hour;
@@ -370,6 +394,7 @@ void cmd_touch(char* buffer) {
   month = dt.tm_mon + 1;
   day = dt.tm_mday;
   year = dt.tm_year + 1900 - 1972;
+#endif
   ram[addr+7] = (year << 1) | ((month >> 3) & 0x1);
   ram[addr+8] = ((month & 7) << 5) | (day & 0x1f);
   ram[addr+9] = ((hour & 0x1f) << 3) | ((minute >> 3) & 0x7);
@@ -681,7 +706,7 @@ void cmd_wrsec() {
 
 void openDisk() {
   int i;
-  disk = open(diskName, O_RDWR);
+  disk = open(diskName, O_RDWR | O_BINARY);
   if (disk < 0) {
     perror("Error opening disk");
     exit(1);
@@ -807,7 +832,7 @@ int main(int argc, char** argv) {
     i++;
     }
 
-  disk = open(diskName, O_RDWR);
+  disk = open(diskName, O_RDWR | O_BINARY);
   if (disk < 0) {
     perror("Error opening disk");
     exit(1);
