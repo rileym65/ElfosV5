@@ -4,8 +4,29 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <sys/types.h>
+
+#ifdef _MSC_VER
+// [RLA] Windows MSVC version ...
+#include <stdint.h>
+#include <io.h>
+#include <fcntl.h>
+typedef uint8_t byte;
+#define _BYTE
+typedef uint16_t word;
+#define _WORD
+typedef uint32_t dword;
+#define _DWORD
+#define close _close
+#define open _open
+#define read _read
+#define write _write
+#define lseek _lseek
+#else
+// [RLA] Linux verson ...
+#include <unistd.h>
+#define O_BINARY 0
+#endif
 
 #ifdef MAIN
 #define LINK
