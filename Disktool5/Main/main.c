@@ -2,12 +2,9 @@
 
 #include "header.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 #include <sys/types.h>
 
 #ifdef _MSC_VER
