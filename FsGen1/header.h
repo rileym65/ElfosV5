@@ -26,8 +26,6 @@ typedef u_int8_t byte;
 #define O_BINARY 0
 #endif
 
-#include <unistd.h>
-
 #ifdef MAIN
 #define LINK
 #else
