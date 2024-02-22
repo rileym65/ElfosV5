@@ -24,6 +24,7 @@ void format() {
 
 void writeBoot() {
   int i;
+  byte cs;
   word md;
   printf("Installing Boot 2.1\n");
   zero();
@@ -61,6 +62,12 @@ void writeBoot() {
   dta[0x137] = 'M';
   dta[0x138] = 'D';
   dta[0x139] = 0;
+  cs = 0xff;
+  for (i=0; i<511; i++) {
+    cs += dta[i];
+    cs = (cs << 1) | ((cs >> 7) & 0x01);
+    }
+  dta[0x1ff] = cs;
   d_idewrite(0);
   zero();
   for (i=0; i<sector1_size; i++) dta[i] = data[sector1_offset+i];
