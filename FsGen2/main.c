@@ -1,5 +1,6 @@
 #define MAIN
 
+#include <string.h>
 #include "header.h"
 #include "data.h"
 
@@ -16,7 +17,7 @@ void zero() {
 
 void format() {
   dword i;
-  printf("Preparing disk\n");
+  printf("Formatting disk\n");
   zero();
   for (i=0; i<sectors; i++)
     d_idewrite(i);
@@ -224,14 +225,26 @@ void writeFile(dword sector, word offset, word size) {
   }
 
 int main(int argc, char** argv) {
+  int i;
+  int doFormat;
   printf("FsGenv5 - FsType II\n\n");
 
-  if (argc != 2) {
-    printf("Usage: fsgen1 sizeInMB\n");
+  doFormat = 0;
+  diskSize = 0;
+  if (argc < 2) {
+    printf("Usage: fsgen2 sizeInMB\n");
     exit(1);
     }
 
-  diskSize = atoi(argv[1]);
+  for (i=0; i<argc; i++) {
+    if (strcmp(argv[i], "-f") == 0) doFormat = -1;
+    else diskSize = atoi(argv[i]);
+    }
+
+  if (diskSize == 0) {
+    printf("No disk size specified.  Aborting.\n");
+    exit(1);
+    }
   sectors = (diskSize * 1000000) / 512;
   aus = sectors / 8;
 
@@ -260,7 +273,7 @@ int main(int argc, char** argv) {
     exit(1);
     }
 
-  format();
+  if (doFormat) format();
   writeBoot();
   buildLAT();
   buildMD();
