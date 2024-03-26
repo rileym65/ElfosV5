@@ -1,0 +1,115 @@
+Usage:
+  asm02 [options] filename
+
+Command line options:
+     -1805        - Enable 1804/5/6 instructions
+     -l           - Show listing
+     -L           - Generate .lst file
+     -s           - Show Symbols
+     -Dname       - Define name with value '1'
+     -Dname=value - Define name with specified value
+
+Preprocessor
+  #include file       - Include specified file
+  #define name        - Define name as '1'
+  #define name string - Define name as specified string
+  #ifdef name         - Condition if name is defined
+  #ifndef name        - Condition if name is not defined
+  #if expr            - Condition of expr evaluates non-zero
+  #else               - Else of #ifdef/#ifndef/#if
+  #endif              - End if #ifdef/#ifndef/#if
+  #error message      - Display message and increment error count
+
+  note: #define substitution on source lines does occur
+
+Assembler directives:
+  .1805        - Enable 1805 instructions
+  .align word  - Align address on word boundary (2 bytes)
+  .align dword - Align address on double word boundary (4 bytes)
+  .align qword - Align address on quad word boundary (8 bytes)
+  .align para  - Align address on paragraph boundary (16 bytes)
+  .align 32    - Align address on 32-byte boundary
+  .align 64    - Align address on 64-byte boundary
+  .align 128   - Align address on 128-byte boundary
+  .align page  - Align address on page boundary (256 bytes)
+  .list        - Enable show list
+  .sym         - Show Symbols
+
+Pseudo Ops:
+  ORG nnnn     - Set assembly address to nnnn
+  DB n,n,..    - Define bytes
+  DW nn,nn,..  - Define words
+  DS nn        - Define storage
+  END nnnn     - End assembly and set starting address
+  EQU nnnn     - Equate label to nnnn
+  PUBLIC sym   - Declare sym as a public symbol
+  EXTRN sym    - Declare sym as external symbol
+  VER          - Build standard Elf/OS VER header
+  EVER         - Build extended Elf/OS VER header
+  EEVER        - Build enhanced Elf/OS VER header
+  PROC name    - Begin proc assembly
+  ENDP         - End proc assembly
+  CALL nnnn    - Assembles as 'SEP R4  DW nnnn'
+  RTN          - Assembles as 'SEP R5'
+  PUSH n       - Push 16-bit register n
+  POP n        - Pop 16-bit register n
+
+Evaluator variables:
+  [month]      - Build month
+  [day]        - Build day
+  [year]       - Build year
+  [hour]       - Build hour
+  [minute]     - Build minute
+  [second]     - Build second
+  [build]      - Build number
+
+Expression evaluator terms:
+  nn           - Decimal number
+  %nn          - Binary number
+  $nn          - Hex number
+  $            - Current assembly address
+  'c'          - ASCII value of character
+  label        - Value of label
+  Rn           - n=0-15, a-f
+  HIGH nnnn    - High byte of value
+  LOW nnnn     - Low byte of value
+  SGN(expr)    - Sign of expression
+  ABS(expr)    - Absolute value of expression
+  ~nnn         - Invert bits of n
+
+Expression operators:
+    + - Addition
+    - - Subtraction
+    * - Multiplication
+    / - Division
+    % - Modulo
+   << - shift left
+   >> - shift right
+    > - Greater than
+   >= - Greater or equal
+    < - Less than
+   <= - Less or equal
+    = - equal to
+   == - Equal to
+   <> - Not equal to
+   != - Not equal to
+    & - And
+   && - And
+    | - Or
+   || - Or
+    ^ - Xor
+    . - byte selector
+
+Operator precedence:
+  LOW  HIGH  SGN  ABS
+  .
+  / % *
+  + -
+  << >>
+  & | ^ ~
+  = == <> != > >= < <=
+  && ||
+
+Precedence can be altered with the use of parenthesis
+
+
