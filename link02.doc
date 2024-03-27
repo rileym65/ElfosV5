@@ -1,0 +1,50 @@
+Usage:
+  link02 [options] [@ctrlfile] objfile [ objfile ... ]
+
+Command line options:
+         -e - Output as Elf/OS executable (default)
+         -h - Output as RCS hex
+         -b - Output as pure binary
+         -i - Output as Intel hex
+    -l file - Specify library to search
+         -s - Show symbols
+  -O offset - Offset address in intel mode
+    -o file - Output to specified file
+
+Note: multiple object files are allowed on the command line
+      offset is in hex and can be negative
+
+Control Files:
+  add filename         - Add specified object file
+  library filename     - Specify library to search
+  mode binary          - Set binary output mode
+  mode elfos           - Set Elf/OS output mode
+  mode intel           - Set Intel hex output mode
+  mode rcs             - Set RCS hex output mode
+  offset offs          - Set address offset for Intel hex mode
+  output filename      - Filename for output
+
+
+Object Files:
+  .align word          - Align procedure on word boundary (2 bytes)
+  .align dword         - Align procedure on double word boundary (4 bytes)
+  .align qword         - Align procedure on quad word boundary (8 bytes)
+  .align para          - Align procedure on paragraph boundary (16 bytes)
+  .align 32            - Align procedure on 32-byte boundary
+  .align 64            - Align procedure on 64-byte boundary
+  .align 128           - Align procedure on 128-byte boundary
+  .align page          - Align procedure on page boundary (256 bytes)
+  .library filename    - Specify library to search
+  :addr bb bb bb ...   - Program bytes
+  @addr                - Start address
+  ?name addr           - External reference used at addr
+  =name value          - Public symbol
+  {name                - Begin relocatable procedure
+  }                    - End relocatable procedure
+  /name addr [lofs]    - Add byte at addr with high of name
+  \name addr           - Add byte at addr with low of name
+  +addr [lofs]         - Apply module offset at addr
+  ^addr                - Apply high byte of module offset at addr
+  vaddr                - Apply low byte of module offset at addr
+  >inc                 - Increment address pointer
+
