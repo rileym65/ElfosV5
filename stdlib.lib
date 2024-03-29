@@ -1,184 +1,148 @@
 .big
-{addtows
+{fp_addtows
 :0000 60 72 b8 f0 a8 1d 1d 1d 0d 73 2d 0d 73 2d 0d 73
 :0010 2d 0d 73 88 73 98 73 d5
 }
 .big
-{fpacos
+{fp_acos
 :0000 17 47 a8 47 b8 47 a9 07 b9 e7 f8 3f 73 f8 80 73
 :0010 f8 00 73 73 99 73 89 73 98 73 88 73 99 73 89 73
 :0020 98 73 88 73 f8 3f 73 f8 80 73 f8 00 73 73 99 73
-/addfp 0038 00
-\addfp 0039
+?fp_add 0038
 :0030 89 73 98 73 88 73 e2 d4 00 00 17 47 73 47 73 47
-/mulfp 0044 00
-\mulfp 0045
-/subfp 0047 00
-\subfp 0048
-/fpsqrt 004a 00
-\fpsqrt 004b
+?fp_mul 0044
+?fp_sub 0047
+?fp_sqrt 004a
 :0040 73 07 73 d4 00 00 d4 00 00 d4 00 00 60 72 57 27
-/divfp 005a 00
-\divfp 005b
-/fpatan 005d 00
-\fpatan 005e
+?fp_div 005a
+?fp_atan 005d
 :0050 72 57 27 72 57 27 f0 57 27 d4 00 00 d4 00 00 e7
-/mulfp 006a 00
-\mulfp 006b
+?fp_mul 006a
 :0060 f8 40 73 f8 00 73 73 73 e2 d4 00 00 d5
 }
 .big
-{fpasin
+{fp_asin
 :0000 17 47 a8 47 b8 47 a9 07 b9 27 27 27 27 e7 f8 3f
 :0010 73 f8 80 73 f8 00 73 73 f8 3f 73 f8 80 73 f8 00
 :0020 73 73 99 73 89 73 98 73 88 73 99 73 89 73 98 73
-/mulfp 0034 00
-\mulfp 0035
-/subfp 0037 00
-\subfp 0038
-/fpsqrt 003a 00
-\fpsqrt 003b
-/addfp 003d 00
-\addfp 003e
+?fp_mul 0034
+?fp_sub 0037
+?fp_sqrt 003a
+?fp_add 003d
 :0030 88 73 e2 d4 00 00 d4 00 00 d4 00 00 d4 00 00 d4
-/divfp 0040 00
-\divfp 0041
-/fpatan 0043 00
-\fpatan 0044
+?fp_div 0040
+?fp_atan 0043
 :0040 00 00 d4 00 00 e7 f8 40 73 f8 00 73 73 73 e2 d4
-/mulfp 0050 00
-\mulfp 0051
+?fp_mul 0050
 :0050 00 00 d5
 }
 .big
-{fpatan
+{fp_atan
 :0000 17 47 a8 47 b8 47 a9 07 b9 27 27 27 27 e7 99 73
 :0010 89 73 98 73 88 73 99 73 89 73 98 73 88 73 e2 d4
-/mulfp 0020 00
-\mulfp 0021
-/addfp 002f 00
+?fp_mul 0020
+?fp_add 002f
 :0020 00 00 e7 f8 3f 73 f8 80 73 f8 00 73 73 e2 d4 00
-\addfp 0030
-/fpsqrt 0032 00
-\fpsqrt 0033
+?fp_sqrt 0032
 :0030 00 d4 00 00 e7 f8 3f 73 f8 80 73 f8 00 73 73 e2
-/addfp 0041 00
-\addfp 0042
-/divfp 0044 00
-\divfp 0045
+?fp_add 0041
+?fp_div 0044
 :0040 d4 00 00 d4 00 00 97 73 87 73 73 73 73 73 97 bf
-/addtows 0058 00
-\addtows 0059
-/addtows 005f 00
+?fp_addtows 0058
+?fp_addtows 005f
 :0050 87 af 1f 9f bd 8f ad d4 00 00 9f bd 8f ad d4 00
-\addtows 0060
-/addtows 0066 00
-\addtows 0067
-/getargs 0069 00
-\getargs 006a
-/mulfpi 006e 00
-\mulfpi 006f
+?fp_addtows 0066
+?fp_getargs 0069
+?fp_muli 006e
 :0060 00 9f bd 8f ad d4 00 00 d4 00 00 09 09 d4 00 00
-/getargs 007a 00
-\getargs 007b
+?fp_getargs 007a
 :0070 f8 00 b9 f8 e8 a9 f8 0a ac d4 00 00 05 09 8c 73
-/mulfpi 0085 00
-\mulfpi 0086
-/getargs 0088 00
-\getargs 0089
-/fpcopy 008d 00
-\fpcopy 008e
+?fp_muli 0085
+?fp_getargs 0088
+?fp_copy 008d
 :0080 99 73 89 73 d4 00 00 d4 00 00 10 08 d4 00 00 60
-/mulfpi 009f 00
+?fp_muli 009f
 :0090 72 ad f0 bd 22 82 fc 0f af 92 7c 00 bf 22 d4 00
-\mulfpi 00a0
-/getargs 00a2 00
-\getargs 00a3
-/addfpi 00a7 00
-\addfpi 00a8
+?fp_getargs 00a2
+?fp_addi 00a7
 :00a0 00 d4 00 00 04 10 d4 00 00 60 72 a9 72 b9 f0 ac
-/getargs 00ba 00
-\getargs 00bb
-/addfpi 00bf 00
+?fp_getargs 00ba
+?fp_addi 00bf
 :00b0 19 19 19 19 2c 8c ca 00 79 d4 00 00 01 01 d4 00
-\addfpi 00c0
 :00c0 00 60 72 a8 72 b8 72 a9 f0 b9 82 fc 0c a2 92 7c
 :00d0 00 b2 60 72 a7 f0 b7 17 88 57 17 98 57 17 89 57
 :00e0 17 99 57 27 27 27 27 d5 ab aa aa be cd cc 4c 3e
 :00f0 25 49 12 be 39 8e e3 3d 8c 2e ba bd d9 89 9d 3d
 :0100 89 88 88 bd f1 f0 70 3d 36 94 57 bd 31 0c 43 3d
-^0071
+^0071 e8
 v0074
 +00b7
 }
 .big
-{fpcopy
+{fp_copy
 :0000 4d 5f 1f 4d 5f 1f 4d 5f 1f 4d 5f d5
 }
 .big
-{fpcos
-.requires fpdata
-.requires trigdata
-/addtows 000e 00
-\addtows 000f
+{fp_cos
+.requires fp_data
+.requires fp_trigdata
+?fp_addtows 000e
 :0000 97 73 87 73 97 bf 87 af 1f 9f bd 8f ad d4 00 00
 :0010 f8 00 73 73 73 73 73 73 73 73 73 73 73 73 73 73
-/fact 0021
-\fact 0024
+/fp_fact 0021 08
+\fp_fact 0024
 /fp_1 002d
 :0020 f8 00 73 f8 08 73 f8 00 73 73 73 73 f8 00 bd f8
 \fp_1 0030
-/addtows 0033 00
-\addtows 0034
+?fp_addtows 0033
 /fp_1 0036
 \fp_1 0039
-/addtows 003c 00
-\addtows 003d
-?sincos 003f
+?fp_addtows 003c
+?fp_sincos 003f
 :0030 00 ad d4 00 00 f8 00 bd f8 00 ad d4 00 00 c0 00
 :0040 00
 }
 .big
-{fpexp
-.requires fpdata
-?addtows 000e
+{fp_exp
+.requires fp_data
+?fp_addtows 000e
 :0000 97 73 87 73 97 bf 87 af 1f 9f bd 8f ad d4 00 00
-?addtows 0019
+?fp_addtows 0019
 /fp_2 001c
 :0010 73 73 73 73 9f bd 8f ad d4 00 00 f8 00 bd f8 00
 \fp_2 001f
-?addtows 0022
+?fp_addtows 0022
 /fp_1 0025
 \fp_1 0028
-?addtows 002b
+?fp_addtows 002b
 /fp_0 002e
 :0020 ad d4 00 00 f8 00 bd f8 00 ad d4 00 00 f8 00 bd
 \fp_0 0031
-?addtows 0034
-?addtows 003b
+?fp_addtows 0034
+?fp_addtows 003b
 :0030 f8 00 ad d4 00 00 9f bd 8f ad d4 00 00 92 bf 82
 /fp_1 0043
 \fp_1 0046
-?addfpi 0049
-?getargs 004c
+?fp_addi 0049
+?fp_getargs 004c
 :0040 af 1f f8 00 bd f8 00 ad d4 00 00 d4 00 00 05 01
 :0050 f8 04 ac f8 00 ae 0d 52 0f f7 52 8e f1 ae 0d 5f
-?getargs 006c
+?fp_getargs 006c
 :0060 1d 1f 2c 8c ca 00 56 8e c2 00 af d4 00 00 11 19
-?mulfpi 0071
-?getargs 0074
-?mulfpi 0079
+?fp_muli 0071
+?fp_getargs 0074
+?fp_muli 0079
 :0070 d4 00 00 d4 00 00 09 0d d4 00 00 82 fc 0d af 92
 /fp_1 0084
 \fp_1 0087
-?addfpi 008a
-?getargs 008d
+?fp_addi 008a
+?fp_getargs 008d
 :0080 7c 00 bf f8 00 bd f8 00 ad d4 00 00 d4 00 00 15
-?getargs 009d
+?fp_getargs 009d
 :0090 11 4d 5f 1f 4d 5f 1f 4d 5f 1f 4d 5f d4 00 00 15
-?divfpi 00a2
-?getargs 00a5
-?addfpi 00aa
+?fp_divi 00a2
+?fp_getargs 00a5
+?fp_addi 00aa
 :00a0 09 d4 00 00 d4 00 00 01 15 d4 00 00 c0 00 4b 60
 :00b0 72 a8 72 b8 72 aa f0 ba 82 fc 18 a2 92 7c 00 b2
 :00c0 60 72 a7 f0 b7 17 88 57 17 98 57 17 8a 57 17 9a
@@ -188,75 +152,53 @@ v0074
 +00ad
 }
 .big
-{fpln
-.requires fpdata
-/addtows 000e 00
-\addtows 000f
+{fp_ln
+.requires fp_data
+?fp_addtows 000e
 :0000 97 73 87 73 97 bf 87 af 1f 9f bd 8f ad d4 00 00
-/addtows 0015 00
-\addtows 0016
+?fp_addtows 0015
 /fp_1 001c
 :0010 9f bd 8f ad d4 00 00 73 73 73 73 f8 00 bd f8 00
 \fp_1 001f
-/addtows 0022 00
-\addtows 0023
+?fp_addtows 0022
 /fp_1 0025
 \fp_1 0028
-/addtows 002b 00
-\addtows 002c
+?fp_addtows 002b
 :0020 ad d4 00 00 f8 00 bd f8 00 ad d4 00 00 f8 00 73
 /fp_1 003c
 :0030 73 73 73 82 fc 11 af 92 7c 00 bf f8 00 bd f8 00
 \fp_1 003f
-/addfpi 0042 00
-\addfpi 0043
+?fp_addi 0042
 /fp_1 004d
 :0040 ad d4 00 00 82 fc 15 af 92 7c 00 bf f8 00 bd f8
 \fp_1 0050
-/subfpi 0053 00
-\subfpi 0054
-/getargs 0056 00
-\getargs 0057
-/divfpi 005b 00
-\divfpi 005c
-/getargs 005e 00
-\getargs 005f
+?fp_subi 0053
+?fp_getargs 0056
+?fp_divi 005b
+?fp_getargs 005e
 :0050 00 ad d4 00 00 d4 00 00 15 11 d4 00 00 d4 00 00
-/getargs 006e 00
-\getargs 006f
+?fp_getargs 006e
 :0060 0d 15 4d 5f 1f 4d 5f 1f 4d 5f 1f 4d 5f d4 00 00
-/mulfpi 0073 00
-\mulfpi 0074
-/getargs 0076 00
-\getargs 0077
+?fp_muli 0073
+?fp_getargs 0076
 :0070 15 15 d4 00 00 d4 00 00 05 01 f8 04 ac f8 00 ae
 :0080 0d 52 0f f7 52 8e f1 ae 0d 5f 1d 1f 2c 8c ca 00
-/getargs 0096 00
-\getargs 0097
+?fp_getargs 0096
 :0090 80 8e c2 00 d1 d4 00 00 11 0d 4d 5f 1f 4d 5f 1f
-/getargs 00a6 00
-\getargs 00a7
-/divfpi 00ab 00
-\divfpi 00ac
-/getargs 00ae 00
-\getargs 00af
+?fp_getargs 00a6
+?fp_divi 00ab
+?fp_getargs 00ae
 :00a0 4d 5f 1f 4d 5f d4 00 00 11 09 d4 00 00 d4 00 00
-/addfpi 00b3 00
-\addfpi 00b4
-/getargs 00b6 00
-\getargs 00b7
-/mulfpi 00bb 00
-\mulfpi 00bc
+?fp_addi 00b3
+?fp_getargs 00b6
+?fp_muli 00bb
 :00b0 01 11 d4 00 00 d4 00 00 0d 15 d4 00 00 82 fc 09
 /fp_2 00c6
 \fp_2 00c9
-/addfpi 00cc 00
-\addfpi 00cd
+?fp_addi 00cc
 :00c0 af 92 7c 00 bf f8 00 bd f8 00 ad d4 00 00 c0 00
-/getargs 00d2 00
-\getargs 00d3
-/addfpi 00d7 00
-\addfpi 00d8
+?fp_getargs 00d2
+?fp_addi 00d7
 :00d0 75 d4 00 00 01 01 d4 00 00 60 72 a8 72 b8 72 aa
 :00e0 f0 ba 82 fc 14 a2 92 7c 00 b2 60 72 a7 f0 b7 17
 :00f0 88 57 17 98 57 17 8a 57 17 9a 57 27 27 27 27 d5
@@ -265,109 +207,78 @@ v0074
 +00cf
 }
 .big
-{fppow
-/fpln 0005 00
-\fpln 0006
-/mulfp 000c 00
-\mulfp 000d
-/fpexp 000f 00
+{fp_pow
+?fp_ln 0005
+?fp_mul 000c
+?fp_exp 000f
 :0000 17 17 17 17 d4 00 00 27 27 27 27 d4 00 00 d4 00
-\fpexp 0010
 :0010 00 d5
 }
 .big
-{fpsin
-.requires trigdata
-/addtows 000e 00
-\addtows 000f
+{fp_sin
+.requires fp_trigdata
+?fp_addtows 000e
 :0000 97 73 87 73 97 bf 87 af 1f 9f bd 8f ad d4 00 00
 :0010 f8 00 73 73 73 73 73 73 73 73 73 73 73 73 73 73
-/fact 0021
-\fact 0024
+/fp_fact 0021 0c
+\fp_fact 0024
 :0020 f8 00 73 f8 0c 73 f8 00 73 73 73 73 9f bd 8f ad
-/addtows 0031 00
-\addtows 0032
-/addtows 0038 00
-\addtows 0039
-/getargs 003b 00
-\getargs 003c
+?fp_addtows 0031
+?fp_addtows 0038
+?fp_getargs 003b
 :0030 d4 00 00 9f bd 8f ad d4 00 00 d4 00 00 1d 1d d4
-/mulfpi 0040 00
-\mulfpi 0041
-/getargs 0043 00
-\getargs 0044
+?fp_muli 0040
+?fp_getargs 0043
 :0040 00 00 d4 00 00 09 01 f8 04 ac f8 00 ae 0d 52 0f
 :0050 f7 52 8e f1 ae 0d 5f 1d 1f 2c 8c ca 00 4d 8e c2
-/getargs 0063 00
-\getargs 0064
-/mulfpi 0068 00
-\mulfpi 0069
-/getargs 006b 00
-\getargs 006c
+?fp_getargs 0063
+?fp_muli 0068
+?fp_getargs 006b
 :0060 00 b6 d4 00 00 05 1d d4 00 00 d4 00 00 11 0d 0d
 :0070 a7 fc 08 5d 1d 0d b7 7c 00 5d 47 5f 1f 47 5f 1f
 :0080 47 5f 1f 82 fc 19 ad 92 7c 00 bd 0d fb 80 5d 52
-/getargs 0094 00
-\getargs 0095
+?fp_getargs 0094
 :0090 47 f1 5f d4 00 00 15 05 4d 5f 1f 4d 5f 1f 4d 5f
-/getargs 00a4 00
-\getargs 00a5
-/divfpi 00a9 00
-\divfpi 00aa
-/getargs 00ac 00
-\getargs 00ad
+?fp_getargs 00a4
+?fp_divi 00a9
+?fp_getargs 00ac
 :00a0 1f 4d 5f d4 00 00 15 11 d4 00 00 d4 00 00 01 15
-/addfpi 00b1 00
-\addfpi 00b2
+?fp_addi 00b1
 :00b0 d4 00 00 c0 00 42 60 72 a8 72 b8 72 aa f0 ba 82
 :00c0 fc 1c a2 92 7c 00 b2 60 72 a7 f0 b7 17 88 57 17
-=sincos 003a
+=fp_sincos 003a
 :00d0 98 57 17 8a 57 17 9a 57 27 27 27 27 d5
 +005c
 +0060
 +00b4
 }
 .big
-{fpsqrt
-.requires fpdata
-/addtows 000a 00
-\addtows 000b
+{fp_sqrt
+.requires fp_data
+?fp_addtows 000a
 :0000 97 bf 87 af 1f 9f bd 8f ad d4 00 00 9f bd 8f ad
-/addtows 0011 00
-\addtows 0012
-/addtows 0018 00
-\addtows 0019
-/addtows 001f 00
+?fp_addtows 0011
+?fp_addtows 0018
+?fp_addtows 001f
 :0010 d4 00 00 9f bd 8f ad d4 00 00 9f bd 8f ad d4 00
-\addtows 0020
-/getargs 0025 00
-\getargs 0026
-/fpcopy 002a 00
-\fpcopy 002b
-/getargs 002f 00
+?fp_getargs 0025
+?fp_copy 002a
+?fp_getargs 002f
 :0020 00 f8 ff ac d4 00 00 01 0d d4 00 00 8c 73 d4 00
-\getargs 0030
-/divfpi 0034 00
-\divfpi 0035
-/getargs 0037 00
-\getargs 0038
-/addfpi 003c 00
-\addfpi 003d
+?fp_divi 0034
+?fp_getargs 0037
+?fp_addi 003c
 :0030 00 02 06 d4 00 00 d4 00 00 06 02 d4 00 00 82 fc
 /fp_dot5 0047
 \fp_dot5 004a
-/mulfpi 004d 00
-\mulfpi 004e
+?fp_muli 004d
 :0040 06 af 92 7c 00 bf f8 00 bd f8 00 ad d4 00 00 60
-/getargs 0053 00
-\getargs 0054
+?fp_getargs 0053
 :0050 f0 ac d4 00 00 09 05 4f fa fc 52 4d fa fc f7 ca
 :0060 00 77 4f 52 4d f7 ca 00 77 4f 52 4d f7 ca 00 77
-/getargs 007d 00
-\getargs 007e
+?fp_getargs 007d
 :0070 4f 52 4d f7 c2 00 87 2c 8c c2 00 87 d4 00 00 09
-/fpcopy 0082 00
-\fpcopy 0083
+?fp_copy 0082
 :0080 05 d4 00 00 c0 00 24 60 60 60 60 60 72 a8 72 b8
 :0090 72 a9 f0 b9 82 fc 08 a2 92 7c 00 b2 17 88 57 17
 :00a0 98 57 17 89 57 17 99 57 27 27 27 27 d5
@@ -379,33 +290,27 @@ v0074
 +0085
 }
 .big
-{fptan
-/addtows 000e 00
-\addtows 000f
+{fp_tan
+?fp_addtows 000e
 :0000 97 73 87 73 97 bf 87 af 1f 9f bd 8f ad d4 00 00
-/addtows 0015 00
-\addtows 0016
-/fpsin 001c 00
-\fpsin 001d
+?fp_addtows 0015
+?fp_sin 001c
 :0010 9f bd 8f ad d4 00 00 82 a7 92 b7 d4 00 00 82 fc
-/fpcos 0027 00
-\fpcos 0028
-/getargs 002a 00
-\getargs 002b
-/divfpi 002f 00
+?fp_cos 0027
+?fp_getargs 002a
+?fp_divi 002f
 :0020 04 a7 92 7c 00 b7 d4 00 00 d4 00 00 01 05 d4 00
-\divfpi 0030
 :0030 00 60 72 a8 72 b8 72 aa 72 ba 60 60 60 60 72 a7
 :0040 f0 b7 17 88 57 17 98 57 17 8a 57 17 9a 57 27 27
 :0050 27 27 d5
 }
 .big
-{getargs
+{fp_getargs
 :0000 46 52 82 f4 af 92 7c 00 bf 1f 1f 46 52 82 f4 ad
 :0010 92 7c 00 bd 1d 1d d5
 }
 .big
-{trigdata
+{fp_trigdata
 :0000 00 00 00 00 00 00 80 3f 00 00 00 40 00 00 c0 40
 :0010 00 00 c0 41 00 00 f0 42 00 00 34 44 00 80 9d 45
 :0020 00 80 1d 47 00 30 b1 48 00 7c 5d 4a 40 45 18 4c
@@ -414,28 +319,26 @@ v0074
 :0050 9e 0d 07 5e df 41 31 60 93 ba 73 62 1a 2e af 64
 :0060 94 62 03 67 07 4a 4d 69 26 cc a6 6b 40 bc 0c 6e
 :0070 70 49 76 70 8e 32 df 72 65 3f 51 75 6a b5 ca 77
-=fact 0000
+=fp_fact 0000
 :0080 6a b5 4a 7a 15 0b d1 7c c6 1b 5e 7f
 }
 .big
-{absfp
+{fp_abs
 :0000 17 17 17 17 07 fa 7f 57 27 27 27 27 d5
 }
 .big
-{addfp
-/addfpi 000d 00
-\addfpi 000e
+{fp_add
+?fp_addi 000d
 :0000 87 af ad 97 bf bd 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{addfpi
-/fpargs 0009 00
-\fpargs 000a
-?fpret_a 000c
+{fp_addi
+?fp_args 0009
+?fp_ret_a 000c
 :0000 97 73 87 73 9f 73 8f 73 d4 00 00 c2 00 00 ff ff
-?fpret_b 0011
-?fpret_b 0015
-?fpret_a 001a
+?fp_ret_b 0011
+?fp_ret_b 0015
+?fp_ret_a 001a
 :0010 c2 00 00 89 c2 00 00 ff ff c2 00 00 89 52 99 f7
 :0020 cb 00 41 88 ae 8b a8 8e ab 98 ae 9b b8 8e bb 87
 :0030 ae 8a a7 8e aa 97 ae 9a b7 8e ba 89 ae 99 a9 8e
@@ -445,15 +348,13 @@ v0074
 :0070 c3 00 8a 88 52 8b f4 a8 98 52 9b 74 b8 87 52 8a
 :0080 74 a7 97 52 9a 74 b7 c0 00 a9 88 52 8b f5 a8 98
 :0090 52 9b 75 b8 87 52 8a 75 a7 97 52 9a 75 b7 fe cb
-/fpcomp2 00a3 00
-\fpcomp2 00a4
+?fp_comp2 00a3
 :00a0 00 a9 d4 00 00 9c fb 80 bc 9c fe f8 00 7e b9 97
 :00b0 ca 00 c2 87 ca 00 c2 98 ca 00 c2 88 ca 00 c2 c0
-?fpret_0 00c0
-/fpnorm 00c3 00
-\fpnorm 00c4
-?fpret_a 00c6
-=fpsub_1 000b
+?fp_ret_0 00c0
+?fp_norm 00c3
+?fp_ret_a 00c6
+=fp_sub_1 000b
 :00c0 00 00 d4 00 00 c0 00 00
 +0021
 +0059
@@ -467,10 +368,10 @@ v0074
 +00bd
 }
 .big
-{atof
-.requires fpdata
+{fp_atof
+.requires fp_data
 :0000 97 73 87 73 f8 00 b9 0f ff 2d ca 00 11 f8 01 b9
-?atoi32 0018
+?int32_atoi 0018
 :0010 1f 9d 73 8d 73 99 73 d4 00 00 60 72 b9 72 ad f0
 :0020 bd 22 22 4d b7 52 4d a7 f1 52 4d b8 f1 52 4d a8
 :0030 f1 c2 00 80 f8 96 a9 f8 01 ab f8 00 bb aa ba 97
@@ -489,7 +390,7 @@ v0074
 :0100 01 19 9b ca 01 19 8a ca 01 19 88 fc 01 a8 98 7c
 :0110 00 b8 87 7c 00 a7 c0 01 2b 8b 52 88 f1 a8 9b 52
 :0120 98 f1 b8 8a 52 87 f1 a7 c0 00 a9 60 72 ff 63 ca
-?fpnorm 0134
+?fp_norm 0134
 :0130 01 2c 22 d4 00 00 0f ff 45 c2 01 5a ff 20 c2 01
 :0140 5a 60 72 ad f0 bd 97 5d 1d 87 5d 1d 98 5d 1d 88
 :0150 5d 2d 2d 2d 60 72 a7 f0 b7 d5 f8 00 b9 1f 0f ff
@@ -499,12 +400,12 @@ v0074
 :0190 88 73 99 f6 c3 01 b2 8c c2 01 cd 82 af 92 bf 1f
 /fp_10 01a1
 \fp_10 01a4
-?mulfpi 01a9
+?fp_muli 01a9
 :01a0 f8 00 bd f8 00 ad 8c 73 d4 00 00 60 f0 ac 2c c0
 /fp_10 01bc
 :01b0 01 97 8c c2 01 cd 82 af 92 bf 1f f8 00 bd f8 00
 \fp_10 01bf
-?divfpi 01c4
+?fp_divi 01c4
 :01c0 ad 8c 73 d4 00 00 60 f0 ac 2c c0 01 b2 60 72 a8
 :01d0 72 b8 72 a7 f0 b7 c0 01 41
 +000b
@@ -553,29 +454,26 @@ v0074
 +01d7
 }
 .big
-{divfp
-/divfpi 000d 00
-\divfpi 000e
+{fp_div
+?fp_divi 000d
 :0000 87 af ad 97 bf bd 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{divfpi
-/fpargs 0009 00
-\fpargs 000a
-?fpret_0 000d
+{fp_divi
+?fp_args 0009
+?fp_ret_0 000d
 :0000 97 73 87 73 9f 73 8f 73 d4 00 00 89 c2 00 00 99
-?fpret_0 0011
-?fpret_a 0017
-?fpret_b 001d
+?fp_ret_0 0011
+?fp_ret_a 0017
+?fp_ret_b 001d
 :0010 c2 00 00 89 ff ff c2 00 00 99 ff ff c2 00 00 99
 :0020 ff 7f 52 89 ff 7f f7 fc 7f a9 97 52 9a f3 fe f8
 :0030 00 7e b9 8a f9 80 73 9b 73 8b 73 f8 00 73 73 73
 :0040 82 ab 92 bb 1b 87 f9 80 73 98 73 88 73 f8 00 73
 :0050 73 73 82 aa 92 ba 1a f8 00 a8 b8 a7 b7 ad bd bc
 :0060 f8 80 ac 8d ca 00 7d 9d ca 00 7d 8c ca 00 7d d4
-/fpnorm 0070 00
-\fpnorm 0071
-?fpret_a 007b
+?fp_norm 0070
+?fp_ret_a 007b
 :0070 00 00 82 fc 0c a2 92 7c 00 b2 c0 00 00 ff 00 f8
 :0080 06 ae eb 4a 77 1b 2e 8e ca 00 83 f8 06 ae 2a 2b
 :0090 2e 8e ca 00 8e cb 00 c1 f8 06 ae ff 00 0a 77 5a
@@ -596,30 +494,29 @@ v0074
 +00e0
 }
 .big
-{eqfp
-/subfp 0001 00
-\subfp 0002
-?true32 000f
+{fp_eq
+?fp_sub 0001
+?int32_true 000f
 :0000 d4 00 00 e7 60 72 f1 72 f1 72 f1 f0 f1 e2 c2 00
-?false32 0012
+?int32_false 0012
 :0010 00 c0 00 00
 }
 .big
-{fpargs
+{fp_args
 :0000 4f a8 4f b8 4f a7 fe 4f b7 7e a9 4d ab 4d bb 4d
 :0010 aa fe 4d ba 7e b9 d5
 }
 .big
-{fpcomp2
+{fp_comp2
 :0000 88 fb ff fc 01 a8 98 fb ff 7c 00 b8 87 fb ff 7c
 :0010 00 a7 97 fb ff 7c 00 b7 d5
 }
 .big
-{fpdata
+{fp_data
 :0000 cd cc cc 3d 00 00 00 00 00 00 80 3f 00 00 00 40
 :0010 00 00 20 41 00 00 c8 42 00 00 7a 44 54 f8 2d 40
 :0020 db 0f 49 40 00 00 40 40 00 00 00 3f db 0f c9 3f
-=fpdot1 0000
+=fp_dot1 0000
 =fp_0 0004
 =fp_1 0008
 =fp_2 000c
@@ -633,7 +530,7 @@ v0074
 =fp_halfpi 002c
 }
 .big
-{fpnorm
+{fp_norm
 :0000 89 c2 00 14 88 ca 00 26 98 ca 00 26 87 ca 00 26
 :0010 97 ca 00 26 f8 00 a8 b8 a7 b7 d5 f8 3f b7 f8 80
 :0020 a7 f8 00 b8 a8 d5 97 c2 00 3f f6 b7 87 76 a7 98
@@ -654,24 +551,23 @@ v0074
 +0053
 }
 .big
-{fpret_0
+{fp_ret_0
 :0000 60 72 af f0 bf f8 00 5f 1f 5f 1f 5f 1f 5f 60 72
 :0010 a7 f0 b7 d5
 }
 .big
-{fpret_a
+{fp_ret_a
 :0000 60 72 af f0 bf 88 5f 1f 98 5f 1f 87 5f 1f 97 5f
 :0010 60 72 a7 f0 b7 d5
 }
 .big
-{fpret_b
+{fp_ret_b
 :0000 60 72 af f0 bf 8b 5f 1f 9b 5f 1f 8a 5f 1f 9a 5f
 :0010 60 72 a7 f0 b7 d5
 }
 .big
-{fromsci
-/round45 0005 00
-\round45 0006
+{fp_fromsci
+?fp_round45 0005
 :0000 9f 73 8f 73 d4 00 00 4f c2 00 18 ff 45 c2 00 24
 :0010 ff 20 c2 00 24 c0 00 07 60 72 af f0 bf 4f 5d 1d
 :0020 ca 00 1d d5 0f ff 2b c2 00 31 0f ff 2d c2 00 34
@@ -731,8 +627,8 @@ v0074
 +0117
 }
 .big
-{ftoa
-.requires fpdata
+{fp_ftoa
+.requires fp_data
 :0000 97 73 87 73 4f a8 4f b8 4f a7 4f b7 fe cb 00 14
 :0010 f8 2d 5d 1d 87 fe 97 7e a9 ca 00 29 f8 30 5d 1d
 :0020 f8 00 5d 60 72 a7 f0 b7 d5 ff ff ca 00 3d f8 69
@@ -741,14 +637,14 @@ v0074
 :0050 88 73 89 ff 82 cb 00 7d 82 af 92 bf 1f 99 73 f8
 /fp_10 0060
 \fp_10 0063
-?divfpi 0066
+?fp_divi 0066
 :0060 00 bd f8 00 ad d4 00 00 60 f0 fc 01 b9 82 fc 03
 :0070 af 92 7c 00 bf 4f fe 0f 7e a9 c0 00 52 60 72 a8
 :0080 72 b8 72 a7 f0 b7 89 ff 7f c3 00 c8 97 73 87 73
 :0090 98 73 88 73 89 ff 7f c3 00 bf 82 af 92 bf 1f 99
 /fp_10 00a2
 \fp_10 00a5
-?mulfpi 00a8
+?fp_muli 00a8
 :00a0 73 f8 00 bd f8 00 ad d4 00 00 60 f0 ff 01 b9 82
 :00b0 fc 03 af 92 7c 00 bf 4f fe 0f 7e a9 c0 00 94 60
 :00c0 72 a8 72 b8 72 a7 f0 b7 f8 00 b7 87 f9 80 a7 f8
@@ -757,7 +653,7 @@ v0074
 :00f0 a9 c0 00 d5 89 ff 97 cb 01 0d 88 fe a8 98 7e b8
 :0100 87 7e a7 97 7e b7 89 fc 01 a9 c0 00 f4 60 72 ad
 :0110 f0 bd 97 73 87 73 98 73 88 73 82 af 92 bf 1f 9a
-?itoa32 012c
+?int32_itoa 012c
 :0120 73 8a 73 9b 73 8b 73 99 73 89 73 d4 00 00 60 72
 :0130 a9 72 b9 72 ab 72 bb 72 aa f0 ba 60 60 60 60 8a
 :0140 ca 01 52 9b ca 01 52 8b ca 01 52 f8 2e 5d 1d c0
@@ -771,7 +667,7 @@ v0074
 :01c0 5d 1d f8 00 ba 2c 8c ca 01 76 99 c2 01 fb f8 45
 :01d0 5d 1d 99 fe cb 01 e4 f8 2d 5d 1d 99 fb ff fc 01
 :01e0 b9 c0 01 e8 f8 2b 5d 1d f8 00 73 73 73 99 73 82
-?itoa32 01f5
+?int32_itoa 01f5
 :01f0 af 92 bf 1f d4 00 00 60 60 60 60 f8 00 5d 60 72
 :0200 a7 f0 b7 d5
 +000e
@@ -804,7 +700,7 @@ v0074
 +01e2
 }
 .big
-{ftoi
+{fp_ftoi
 :0000 17 47 af 47 bf 47 ad 07 bd fe f8 00 7e b9 8d fe
 :0010 9d 7e a9 ca 00 23 f8 00 57 27 57 27 57 27 57 27
 :0020 fc 00 d5 ff ff ca 00 37 f8 ff 57 27 57 27 57 27
@@ -828,27 +724,25 @@ v0074
 +008d
 }
 .big
-{gtfp
-/subfp 0001 00
-\subfp 0002
-?false32 000f
+{fp_gt
+?fp_sub 0001
+?int32_false 000f
 :0000 d4 00 00 e7 60 72 f1 72 f1 72 f1 f0 f1 e2 c2 00
-?true32 0014
-?false32 0017
+?int32_true 0014
+?int32_false 0017
 :0010 00 07 fe cb 00 00 c0 00 00
 }
 .big
-{gtefp
-/subfp 0001 00
-\subfp 0002
-?true32 000f
+{fp_gte
+?fp_sub 0001
+?int32_true 000f
 :0000 d4 00 00 e7 60 72 f1 72 f1 72 f1 f0 f1 e2 c2 00
-?true32 0014
-?false32 0017
+?int32_true 0014
+?int32_false 0017
 :0010 00 07 fe cb 00 00 c0 00 00
 }
 .big
-{itof
+{fp_itof
 :0000 17 47 ab 52 47 bb f1 52 47 aa f1 52 07 ba f1 c2
 :0010 00 70 f8 00 52 9a fe cb 00 36 f8 01 73 8b fb ff
 :0020 fc 01 ab 9b fb ff 7c 00 bb 8a fb ff 7c 00 aa 9a
@@ -865,38 +759,35 @@ v0074
 +0060
 }
 .big
-{ltfp
-/subfp 0001 00
-\subfp 0002
-?false32 000f
+{fp_lt
+?fp_sub 0001
+?int32_false 000f
 :0000 d4 00 00 e7 60 72 f1 72 f1 72 f1 f0 f1 e2 c2 00
-?true32 0014
-?false32 0017
+?int32_true 0014
+?int32_false 0017
 :0010 00 07 fe c3 00 00 c0 00 00
 }
 .big
-{ltefp
-/subfp 0001 00
-\subfp 0002
-?true32 000f
+{fp_lte
+?fp_sub 0001
+?int32_true 000f
 :0000 d4 00 00 e7 60 72 f1 72 f1 72 f1 f0 f1 e2 c2 00
-?true32 0014
-?false32 0017
+?int32_true 0014
+?int32_false 0017
 :0010 00 07 fe c3 00 00 c0 00 00
 }
 .big
-{mulfp
-/mulfpi 000d 00
-\mulfpi 000e
+{fp_mul
+?fp_muli 000d
 :0000 87 af ad 97 bf bd 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{mulfpi
+{fp_muli
 :0000 97 73 87 73 9f 73 8f 73 4d ab 4d bb 4d aa fe 4d
-?fpret_0 0014
+?fp_ret_0 0014
 :0010 ba 7e b9 c2 00 00 4f ad 4f bd 4f ac fe 4f bc 7e
-?fpret_0 0022
-?fpret_b 002e
+?fp_ret_0 0022
+?fp_ret_b 002e
 :0020 a9 c2 00 00 89 ff ff c2 00 99 99 ff ff c2 00 00
 :0030 89 ff 7f 52 99 ff 7f f4 fc 7f a9 9a 52 9c f3 fe
 :0040 f8 00 7e b9 f8 00 ba bc a8 b8 a7 b7 8a f9 80 aa
@@ -904,9 +795,8 @@ v0074
 :0060 93 97 f6 b7 87 76 a7 98 76 b8 88 76 a8 9a f6 ba
 :0070 8a 76 aa 9b 76 bb 8b 76 ab cb 00 54 88 52 8d f4
 :0080 a8 98 52 9d 74 b8 87 52 8c 74 a7 97 52 9c 74 b7
-/fpnorm 0094 00
-\fpnorm 0095
-?fpret_a 0097
+?fp_norm 0094
+?fp_ret_a 0097
 :0090 c0 00 54 d4 00 00 c0 00 00 60 72 af f0 bf 8d 5f
 :00a0 1f 9d 5f 1f 8c 5f 1f 9c 5f 60 72 a7 f0 b7 d5
 +0028
@@ -915,16 +805,15 @@ v0074
 +0091
 }
 .big
-{nefp
-/subfp 0001 00
-\subfp 0002
-?true32 000f
+{fp_ne
+?fp_sub 0001
+?int32_true 000f
 :0000 d4 00 00 e7 60 72 f1 72 f1 72 f1 f0 f1 e2 ca 00
-?false32 0012
+?int32_false 0012
 :0010 00 c0 00 00
 }
 .big
-{round45
+{fp_round45
 :0000 9f 73 8f 73 f8 00 ac bc 0f ff 2d ca 00 0f 1f 4f
 :0010 ae c2 00 2b ff 45 c2 00 2b ff 20 c2 00 2b 1c 8e
 :0020 ff 2e ca 00 0f f8 01 bc c0 00 0f 9c ca 00 35 60
@@ -951,7 +840,7 @@ v0074
 +007a
 }
 .big
-{sgnfp
+{fp_sgn
 :0000 17 47 52 47 f1 52 47 f1 52 07 fe c3 00 20 07 f1
 :0010 c2 00 2b f8 00 57 27 57 27 57 27 f8 01 57 27 d5
 :0020 f8 ff 57 27 57 27 57 27 57 27 d5 27 27 27 27 d5
@@ -959,34 +848,36 @@ v0074
 +0011
 }
 .big
-{subfp
-/subfpi 000d 00
-\subfpi 000e
+{fp_sub
+?fp_subi 000d
 :0000 87 af ad 97 bf bd 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{subfpi
-/fpargs 0009 00
-\fpargs 000a
+{fp_subi
+?fp_args 0009
 :0000 97 73 87 73 9f 73 8f 73 d4 00 00 9a fb 80 ba 99
-?fpsub_1 0011
+?fp_sub_1 0011
 :0010 c0 00 00
 }
 .big
-{abs16
-?neg16 0003
-:0000 97 fe c3 00 00 d5
+{int16_abs
+?int16_neg 0003
+:0000 9c fe c3 00 00 d5
 }
 .big
-{add16
-:0000 87 52 88 f4 a7 97 52 98 74 b7 d5 d5
+{int16_neg
+:0000 8c fb ff ac 9c fb ff bc 1c d5
 }
 .big
-{and16
-:0000 e7 60 72 60 f2 73 72 60 f2 73 27 e2 d5
+{int16_add
+:0000 8c 52 8d f4 ac 9c 52 9d 74 bc d5
 }
 .big
-{atoi16
+{int16_and
+:0000 8c 52 8d f2 ac 9c 52 9d f2 bc d5
+}
+.big
+{int16_atoi
 :0000 f8 00 ac bc a9 0f ff 2d ca 00 0d 1f 19 4f ae ff
 :0010 30 cb 00 19 ff 0a cb 00 2b 89 f6 cb 00 2a 8c fb
 :0020 ff fc 01 ac 9c fb ff 7c 00 bc d5 8e ff 30 ae 8c
@@ -1000,63 +891,63 @@ v0074
 +0057
 }
 .big
-{div16
-?mdnorm16 000c
-:0000 e7 60 72 ad 72 bd 72 ac f0 bc e2 d4 00 00 ae 8d
-:0010 ca 00 1e 9d ca 00 1e e7 f8 00 73 73 e2 d5 f8 00
-:0020 bf af b8 a8 18 9d fa 80 ca 00 3a 8d fe ad 9d 7e
-:0030 bd 88 fe a8 98 7e b8 c0 00 25 8d ca 00 57 9d ca
-:0040 00 57 8e f6 cb 00 50 9f fb ff bf 8f fb ff af 1f
-:0050 e7 9f 73 8f 73 e2 d5 8c a9 9c b9 8d 52 8c f7 ac
-:0060 9d 52 9c 77 bc c3 00 6f 89 ac 99 bc c0 00 79 88
-:0070 52 8f f4 af 98 52 9f 74 bf 9d f6 bd 8d 76 ad 98
-:0080 f6 b8 88 76 a8 c3 00 42 c0 00 3a
-+0011
-+0015
-+0029
-+0038
-+003c
-+0040
-+0045
-+0066
-+006d
-+0086
-+0089
+{int16_div
+?int16_mdnorm 0001
+:0000 d4 00 00 ae 8d ca 00 13 9d ca 00 13 e7 f8 00 73
+:0010 73 e2 d5 f8 00 bf af b8 a8 18 9d fa 80 ca 00 2f
+:0020 8d fe ad 9d 7e bd 88 fe a8 98 7e b8 c0 00 1a 8d
+:0030 ca 00 4e 9d ca 00 4e 8e f6 cb 00 45 9f fb ff bf
+:0040 8f fb ff af 1f 8c ad 9c bd 8f ac 9f bc d5 8c a9
+:0050 9c b9 8d 52 8c f7 ac 9d 52 9c 77 bc c3 00 66 89
+:0060 ac 99 bc c0 00 70 88 52 8f f4 af 98 52 9f 74 bf
+:0070 9d f6 bd 8d 76 ad 98 f6 b8 88 76 a8 c3 00 37 c0
+:0080 00 2f
++0006
++000a
++001e
++002d
++0031
++0035
++003a
++005d
++0064
++007d
++0080
 }
 .big
-{eq16
-?sub16 0001
-?true16 0009
-?false16 000c
-:0000 d4 00 00 e7 60 72 f1 e2 c2 00 00 c0 00 00
+{int16_eq
+?int16_sub 0001
+?int16_true 0008
+?int16_false 000b
+:0000 d4 00 00 8c 52 9c f1 c2 00 00 c0 00 00
 }
 .big
-{false16
-:0000 f8 00 e7 73 73 e2 d5
+{int16_false
+:0000 f8 00 ac bc d5
 }
 .big
-{gt16
-?sub16 0001
-?false16 0009
-?true16 000e
-:0000 d4 00 00 e7 60 72 f1 e2 c2 00 00 07 fe cb 00 00
-?false16 0011
-:0010 c0 00 00
+{int16_gt
+?int16_sub 0001
+?int16_false 0008
+?int16_true 000d
+:0000 d4 00 00 8c 52 9c f1 c2 00 00 9c fe cb 00 00 c0
+?int16_false 0010
+:0010 00 00
 }
 .big
-{gte16
-?sub16 0001
-?true16 0009
-?true16 000e
-:0000 d4 00 00 e7 60 72 f1 e2 c2 00 00 07 fe cb 00 00
-?false16 0011
-:0010 c0 00 00
+{int16_gte
+?int16_sub 0001
+?int16_true 0008
+?int16_true 000d
+:0000 d4 00 00 8c 52 9c f1 c2 00 00 9c fe cb 00 00 c0
+?int16_false 0010
+:0010 00 00
 }
 .big
-{itoa16
+{int16_itoa
 :0000 82 ff 06 a2 92 7f 00 b2 82 af 92 bf 1f 9c fe cb
 :0010 00 1f f8 2d 5d 1d 8c fb ff ac 9c fb ff bc 1c d4
-?tobcd16 0020
+?int16_tobcd 0020
 :0020 00 00 82 af 92 bf 1f f8 05 a8 f8 04 b8 4f c2 00
 :0030 4b 52 f8 00 b8 02 fc 30 5d 1d 28 88 ca 00 2d 82
 :0040 fc 06 a2 92 7c 00 b2 f8 00 5d d5 98 c2 00 36 ff
@@ -1068,33 +959,22 @@ v0074
 +0053
 }
 .big
-{lfsr_shift
-/LFSR_ 0001
-\LFSR_ 0004
-:0000 f8 00 b9 f8 00 a9 19 19 19 09 ae f6 52 8e f3 ae
-:0010 02 f6 52 8e f3 ae 02 f6 f6 52 8e f3 ae 02 f6 f6
-:0020 52 8e f3 ae 29 29 29 09 fe 7e 52 8e f3 fb 01 f6
-:0030 09 76 59 19 09 76 59 19 09 76 59 19 09 76 59 2c
-:0040 8c ca 00 00 d5
-+0042
+{int16_lt
+?int16_sub 0001
+?int16_false 0008
+?int16_true 000d
+:0000 d4 00 00 8c 52 9c f1 c2 00 00 9c fe c3 00 00 c0
+?int16_false 0010
+:0010 00 00
 }
 .big
-{lt16
-?sub16 0001
-?false16 0009
-?true16 000e
-:0000 d4 00 00 e7 60 72 f1 e2 c2 00 00 07 fe c3 00 00
-?false16 0011
-:0010 c0 00 00
-}
-.big
-{lte16
-?sub16 0001
-?true16 0009
-?true16 000e
-:0000 d4 00 00 e7 60 72 f1 e2 c2 00 00 07 fe c3 00 00
-?false16 0011
-:0010 c0 00 00
+{int16_lte16
+?int16_sub 0001
+?int16_true 0008
+?int16_true 000d
+:0000 d4 00 00 8c 52 9c f1 c2 00 00 9c fe c3 00 00 c0
+?int16_false 0010
+:0010 00 00
 }
 .big
 {mdnorm16
@@ -1105,63 +985,56 @@ v0074
 +001a
 }
 .big
-{mod16
-?div16 0001
-:0000 d4 00 00 17 17 9c 57 27 8c 57 27 d5
+{int16_mod
+?int16_div 0001
+:0000 d4 00 00 8d ac 9d bc d5
 }
 .big
-{mul16
-?mdnorm16 000c
-:0000 e7 60 72 ad 72 bd 72 ac f0 bc e2 d4 00 00 ae f8
-:0010 00 bf af 8d ca 00 30 9d ca 00 30 8e f6 cb 00 29
-:0020 8f fb ff af 9f fb ff bf 1f e7 9f 73 8f 73 e2 d5
-:0030 9d f6 bd 8d 76 ad cb 00 43 8c 52 8f f4 af 9c 52
-:0040 9f 74 bf 8c fe ac 9c 7e bc c0 00 13
-+0015
-+0019
-+001e
-+0037
-+004a
+{int16_mul
+?int16_mdnorm 0001
+:0000 d4 00 00 ae f8 00 bf af 8d ca 00 23 9d ca 00 23
+:0010 8e f6 cb 00 1e 8f fb ff af 9f fb ff bf 1f 8f ac
+:0020 9f bc d5 9d f6 bd 8d 76 ad cb 00 36 8c 52 8f f4
+:0030 af 9c 52 9f 74 bf 8c fe ac 9c 7e bc c0 00 08
++000a
++000e
++0013
++002a
++003d
 }
 .big
-{ne16
-?sub16 0001
-?true16 0009
-?false16 000c
-:0000 d4 00 00 e7 60 72 f1 e2 ca 00 00 c0 00 00
+{int16_ne
+?int16_sub 0001
+?int16_true 0008
+?int16_false 000b
+:0000 d4 00 00 87 52 97 f1 ca 00 00 c0 00 00
 }
 .big
-{neg16
-:0000 17 07 fb ff fc 01 57 17 07 fb ff 7c 00 57 27 27
-:0010 d5
+{int16_or
+:0000 8c 52 8d f1 ac 9c 52 9d f1 bc d5
 }
 .big
-{or16
-:0000 e7 60 72 60 f1 73 72 60 f1 73 27 e2 d5
+{int16_rnd
+?lfsr_shift 0008
+/LFSR_ 000b
+\LFSR_ 000e
+:0000 8c ad 9c bd f8 10 ac d4 00 00 f8 00 b9 f8 00 a9
+?int16_mod 001b
+:0010 49 fa 7f bc 09 ac 9d fa 7f bd c0 00 00
 }
 .big
-{rnd16
-?lfsr_shift 0004
-/LFSR_ 0007
-\LFSR_ 000a
-:0000 f8 10 ac d4 00 00 f8 00 b9 f8 00 a9 49 af 09 bf
-:0010 17 47 a9 07 b9 9f fa 7f 57 27 8f 57 27 99 57 27
-?mod16 0024
-:0020 89 57 27 c0 00 00
+{int16_sgn
+:0000 8c 52 9c f1 c2 00 18 9c fe c3 00 13 f8 00 bc f8
+:0010 01 ac d5 f8 ff ac bc d5 d5
++0005
++000a
 }
 .big
-{sgn16
-:0000 17 47 52 07 fe c3 00 16 07 f1 c2 00 1d f8 00 57
-:0010 27 f8 01 57 27 d5 f8 ff 57 27 57 27 d5 27 27 d5
-+0006
-+000b
+{int16_sub
+:0000 8d 52 8c f7 ac 9d 52 9c 77 bc d5
 }
 .big
-{sub16
-:0000 e7 60 72 60 f5 73 72 60 75 73 27 e2 d5
-}
-.big
-{tobcd16
+{int16_tobcd
 :0000 9f 73 8f 73 f8 05 ae f8 00 5f 1f 2e 8e ca 00 07
 :0010 60 72 af f0 bf f8 10 a9 f8 05 ae 9f 73 8f 73 0f
 :0020 ff 05 cb 00 28 fc 08 5f 1f 2e 8e ca 00 1f 8c fe
@@ -1176,37 +1049,48 @@ v0074
 +0060
 }
 .big
-{true16
-:0000 f8 ff e7 73 73 e2 d5
+{int16_true
+:0000 f8 ff ac bc d5
 }
 .big
-{xor16
-:0000 e7 60 72 60 f3 73 72 60 f3 73 27 e2 d5
+{int16_xor
+:0000 8c 52 8d f3 ac 9c 52 9d f3 bc d5
 }
 .big
-{abs32
+{lfsr_shift
+/LFSR_ 0001
+\LFSR_ 0004
+:0000 f8 00 b9 f8 00 a9 19 19 19 09 ae f6 52 8e f3 ae
+:0010 02 f6 52 8e f3 ae 02 f6 f6 52 8e f3 ae 02 f6 f6
+:0020 52 8e f3 ae 29 29 29 09 fe 7e 52 8e f3 fb 01 f6
+:0030 09 76 59 19 09 76 59 19 09 76 59 19 09 76 59 2c
+:0040 8c ca 00 00 d5
++0042
+}
+.big
+{int32_abs
 :0000 17 17 17 17 07 fe cb 00 27 27 27 27 07 fb ff fc
 :0010 01 57 17 07 fb ff 7c 00 57 17 07 fb ff 7c 00 57
 :0020 17 07 fb ff 7c 00 57 27 27 27 27 d5
 +0007
 }
 .big
-{add32
-?add32i 000d
+{int32_add
+?int32_addi 000d
 :0000 87 ad af 97 bd bf 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{add32i
+{int32_addi
 :0000 ed 0f f4 5f 1f 1d 0f 74 5f 1f 1d 0f 74 5f 1f 1d
 :0010 0f 74 5f e2 2f 2f 2f 2d 2d 2d d5
 }
 .big
-{and32
+{int32_and
 :0000 17 87 af 97 bf 1f 1f 1f 1f ef 47 f2 5f 1f 47 f2
 :0010 5f 1f 47 f2 5f 1f 07 f2 5f e2 d5
 }
 .big
-{atoi32
+{int32_atoi
 :0000 f8 00 b8 a8 b9 a9 73 0f ff 2d ca 00 12 f8 01 60
 :0010 73 1f 0f ff 30 cb 00 6d ff 0a c3 00 6d 89 fe a9
 :0020 ab 99 7e b9 bb 88 7e a8 aa 98 7e b8 ba f8 02 ae
@@ -1225,55 +1109,55 @@ v0074
 +0071
 }
 .big
-{cmp32
-?comp32 000d
+{int32_cmp
+?int32_comp 000d
 :0000 87 ad af 97 bd bf 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 17 17 17 17 d5
 }
 .big
-{comp32
+{int32_comp
 :0000 4d 52 4f f7 ae 4d 52 4f 77 52 8e f1 ae 4d 52 4f
 :0010 77 52 8e f1 ae 0d 52 0f 77 52 fe 8e f1 2f 2f 2f
 :0020 2d 2d 2d d5
 }
 .big
-{dec32
+{int32_dec
 :0000 17 07 ff 01 57 17 07 7f 00 57 17 07 7f 00 57 17
 :0010 07 7f 00 57 27 27 27 27 d5
 }
 .big
-{div32
-?div32i 000d
+{int32_div
+?int32_divi 000d
 :0000 87 ad af 97 bd bf 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{div32i
+{int32_divi
 :0000 f8 00 52 1f 1f 1f 0f 2f 2f 2f fa 80 c2 00 1b f8
-?neg32 0018
+?int32_neg 0018
 :0010 01 f3 73 8f aa 9f ba d4 00 00 60 1d 1d 1d 0d 2d
 :0020 2d 2d fa 80 c2 00 33 f8 01 f3 73 8d aa 9d ba d4
-?neg32 0030
+?int32_neg 0030
 :0030 00 00 60 22 f8 00 73 73 73 73 82 ac 92 bc 1c f8
-?icomp32 0043
-?shl32 004d
+?int32_icomp 0043
+?int32_shl 004d
 :0040 01 ab d4 00 00 cb 00 53 8d aa 9d ba d4 00 00 1b
-?zero32 0058
+?int32_zero 0058
 :0050 c0 00 42 8f aa 9f ba d4 00 00 c3 00 93 8d aa 9d
-?zero32 0062
-?shl32 006c
-?comp32 006f
+?int32_zero 0062
+?int32_shl 006c
+?int32_comp 006f
 :0060 ba d4 00 00 c3 00 93 8c aa 9c ba d4 00 00 d4 00
-?sub32i 0079
+?int32_subi 0079
 :0070 00 c3 00 7b 0c f9 01 5c d4 00 00 0d f6 cb 00 84
-?shr32 0089
+?int32_shr 0089
 :0080 2b c0 00 93 8d aa 9d ba d4 00 00 2b 8b c2 00 93
 :0090 c0 00 53 8b fe c3 00 a7 8b c2 00 b6 8c aa 9c ba
-?shl32 00a1
+?int32_shl 00a1
 :00a0 d4 00 00 2b c0 00 98 8b c2 00 b6 8c aa 9c ba d4
-?shr32 00b0
+?int32_shr 00b0
 :00b0 00 00 1b c0 00 a7 4f ab 4f bb 4f aa 0f ba 2f 2f
 :00c0 2f f8 04 a9 4c 5f 1f 29 89 ca 00 c4 2f 2f 2f 2f
-?neg32 00de
+?int32_neg 00de
 :00d0 8c a2 9c b2 02 f6 cb 00 e0 8f aa 9f ba d4 00 00
 :00e0 d5
 +000d
@@ -1296,42 +1180,42 @@ v0074
 +00d7
 }
 .big
-{eq32
-?cmp32 0001
-?false32 0004
-?true32 0007
+{int32_eq
+?int32_cmp 0001
+?int32_false 0004
+?int32_true 0007
 :0000 d4 00 00 ca 00 00 c0 00 00
 }
 .big
-{false32
+{int32_false
 :0000 f8 00 e7 73 73 73 73 e2 d5
 }
 .big
-{gt32
-?cmp32 0001
-?false32 0004
-?true32 0007
-?false32 000a
+{int32_gt
+?int32_cmp 0001
+?int32_false 0004
+?int32_true 0007
+?int32_false 000a
 :0000 d4 00 00 c2 00 00 cb 00 00 c0 00 00
 }
 .big
-{gte32
-?cmp32 0001
-?true32 0004
-?true32 0007
-?false32 000a
+{int32_gte
+?int32_cmp 0001
+?int32_true 0004
+?int32_true 0007
+?int32_false 000a
 :0000 d4 00 00 c2 00 00 cb 00 00 c0 00 00
 }
 .big
-{icomp32
+{int32_icomp
 :0000 4d 52 4f f5 ae 4d 52 4f 75 52 8e f1 ae 4d 52 4f
 :0010 75 52 8e f1 ae 0d 52 0f 75 52 fe 8e f1 2f 2f 2f
 :0020 2d 2d 2d d5
 }
 .big
-{itoa32
+{int32_itoa
 :0000 4f ab 4f bb 4f aa 4f ba 82 ff 0b a2 92 7f 00 b2
-?tobcd32 001b
+?int32_tobcd 001b
 :0010 82 af 92 bf 1f 9a fe c3 00 50 d4 00 00 82 af 92
 :0020 bf 1f f8 0a ab f8 09 bb 4f c2 00 46 52 f8 00 bb
 :0030 02 fc 30 5d 1d 2b 8b ca 00 28 82 fc 0b a2 92 7c
@@ -1346,81 +1230,81 @@ v0074
 +006d
 }
 .big
-{lt32
-?cmp32 0001
-?false32 0004
-?true32 0007
-?false32 000a
+{int32_lt
+?int32_cmp 0001
+?int32_false 0004
+?int32_true 0007
+?int32_false 000a
 :0000 d4 00 00 c2 00 00 c3 00 00 c0 00 00
 }
 .big
-{lte32
-?cmp32 0001
-?true32 0004
-?true32 0007
-?false32 000a
+{int32_lte
+?int32_cmp 0001
+?int32_true 0004
+?int32_true 0007
+?int32_false 000a
 :0000 d4 00 00 c2 00 00 c3 00 00 c0 00 00
 }
 .big
-{mod32
-?div32 0001
+{int32_mod
+?int32_div 0001
 :0000 d4 00 00 17 17 17 17 9a 57 27 8a 57 27 9b 57 27
 :0010 8b 57 27 d5
 }
 .big
-{mul32
-?mul32i 000d
+{int32_mul
+?int32_muli 000d
 :0000 87 ad af 97 bd bf 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{mul32i
+{int32_muli
 :0000 f8 00 73 73 73 73 8f a9 9f b9 82 af 92 bf 1f 8d
-?zero32 0014
+?int32_zero 0014
 :0010 aa 9d ba d4 00 00 cb 00 26 12 42 59 19 42 59 19
 :0020 42 59 19 02 59 d5 0d f6 cb 00 3b 9d 73 8d 73 89
-?add32i 0034
+?int32_addi 0034
 :0030 ad 99 bd d4 00 00 60 72 ad f0 bd 89 aa 99 ba d4
-?shl32 0040
-?shr32 0047
+?int32_shl 0040
+?int32_shr 0047
 :0040 00 00 8d aa 9d ba d4 00 00 c0 00 0f
 +0017
 +0029
 +004a
 }
 .big
-{ne32
-?cmp32 0001
-?false32 0004
-?true32 0007
+{int32_ne
+?int32_cmp 0001
+?int32_false 0004
+?int32_true 0007
 :0000 d4 00 00 c2 00 00 c0 00 00
 }
 .big
-{neg32
+{int32_neg
 :0000 0a fb ff fc 01 5a 1a 0a fb ff 7c 00 5a 1a 0a fb
 :0010 ff 7c 00 5a 1a 0a fb ff 7c 00 5a 2a 2a 2a d5
 }
 .big
-{null32
+{int32_null
 :0000 f8 00 5a 1a 5a 1a 5a 1a 5a 2a 2a 2a d5
 }
 .big
-{or32
+{int32_or
 :0000 17 87 af 97 bf 1f 1f 1f 1f ef 47 f1 5f 1f 47 f1
 :0010 5f 1f 47 f1 5f 1f 07 f1 5f e2 d5
 }
 .big
-{rnd32
+{int32_rnd
 ?lfsr_shift 0004
 /LFSR_ 0007
 \LFSR_ 000a
 :0000 f8 20 ac d4 00 00 f8 00 b9 f8 00 a9 17 47 ab 47
 :0010 bb 47 aa 07 ba 49 fa 7f 57 27 49 57 27 49 57 27
 :0020 49 57 27 9a 57 27 8a 57 27 9b 57 27 8b 57 27 c0
-?mod32 0030
+?int32_mod 0030
 :0030 00 00
 }
 .big
-{sgn32
+{int32_sgn
 :0000 17 47 52 47 f1 52 47 f1 52 07 fe c3 00 20 07 f1
 :0010 c2 00 2b f8 00 57 27 57 27 57 27 f8 01 57 27 d5
 :0020 f8 ff 57 27 57 27 57 27 57 27 d5 27 27 27 27 d5
@@ -1428,27 +1312,27 @@ v0074
 +0011
 }
 .big
-{shl32
+{int32_shl
 :0000 0a fe 5a 1a 0a 7e 5a 1a 0a 7e 5a 1a 0a 7e 5a 2a
 :0010 2a 2a d5
 }
 .big
-{shr32
+{int32_shr
 :0000 1a 1a 1a 0a f6 5a 2a 0a 76 5a 2a 0a 76 5a 2a 0a
 :0010 76 5a d5
 }
 .big
-{sub32
-?sub32i 000d
+{int32_sub
+?int32_subi 000d
 :0000 87 ad af 97 bd bf 1d 1f 1f 1f 1f 1f d4 00 00 17
 :0010 17 17 17 d5
 }
-{sub32i
+{int32_subi
 :0000 ed 0f f7 5f 1f 1d 0f 77 5f 1f 1d 0f 77 5f 1f 1d
 :0010 0f 77 5f e2 2f 2f 2f 2d 2d 2d d5
 }
 .big
-{tobcd32
+{int32_tobcd
 :0000 8f ac 9f bc f8 0a ae f8 00 5c 1c 2e 8e ca 00 07
 :0010 8f ac 9f bc f8 20 a9 f8 0a ae 0c ff 05 cb 00 23
 :0020 fc 08 5c 1c 2e 8e ca 00 1a 8b fe ab 9b 7e bb 8a
@@ -1462,113 +1346,109 @@ v0074
 +005b
 }
 .big
-{true32
+{int32_true
 :0000 f8 ff e7 73 73 73 73 e2 d5
 }
 .big
-{xor32
+{int32_xor
 :0000 17 87 af 97 bf 1f 1f 1f 1f ef 47 f3 5f 1f 47 f3
 :0010 5f 1f 47 f3 5f 1f 07 f3 5f e2 d5
 }
 .big
-{zero32
+{int32_zero
 :0000 ea 72 f1 60 f1 60 f1 2a 2a 2a e2 ca 00 11 ff 00
 :0010 d5 fc 00 d5
 +000c
 }
 .big
-{chartolower
+{str_dtolower
 :0000 ae ff 41 cb 00 0e ff 1a c3 00 0e fc 7b d5 8e d5
 +0004
 +0009
 }
 .big
-{chartoupper
+{str_dtoupper
 :0000 ae ff 61 cb 00 0e ff 1a c3 00 0e fc 5b d5 8e d5
 +0004
 +0009
 }
 .big
-{left
+{str_left
 :0000 8c 52 9c f1 c2 00 0f 2c 4f 5d 1d ca 00 00 d5 f8
 :0010 00 5d d5
 +0005
 +000c
 }
 .big
-{mid
-?left 0005
+{str_mid
+?str_left 0005
 :0000 8b 52 9c f1 c2 00 00 2b 4f ca 00 00 f8 00 5d d5
 +000a
 }
 .big
-{right
+{str_right
 :0000 f8 00 ab bb 4f c2 00 0c 1b c0 00 04 2f 8b 52 9b
-?strcpy 0012
-?strcpy 0019
+?str_strcpy 0012
+?str_strcpy 0019
 :0010 f1 c2 00 00 8c 52 9c f1 c2 00 00 2b 2c c0 00 0c
 +0006
 +000a
 +001e
 }
 .big
-{strcasecmp
-/chartoupper 0002 00
-\chartoupper 0003
-/chartoupper 0007 00
-\chartoupper 0008
+{str_strcasecmp
+?str_dtoupper 0002
+?str_dtoupper 0007
 :0000 4f d4 00 00 73 4d d4 00 00 60 f7 ca 00 15 02 ca
 :0010 00 00 ff 00 d5 fc 00 d5
 +000c
 +0010
 }
 .big
-{strcat
-?strcpy 0006
+{str_strcat
+?str_strcpy 0006
 :0000 4d ca 00 00 2d c0 00 00
 +0002
 }
 .big
-{strchr
+{str_strchr
 :0000 52 4f c2 00 0d f7 ca 00 01 2f ff 00 d5 fc 00 d5
 +0003
 +0007
 }
 .big
-{strcmp
+{str_strcmp
 :0000 4f 52 4d f7 ca 00 0e 02 ca 00 00 ff 00 d5 fc 00
 :0010 d5
 +0005
 +0009
 }
 .big
-{strcpy
+{str_strcpy
 :0000 4f 5d 1d ca 00 00 d5
 +0004
 }
 .big
-{strincat
-?strincpy 0006
+{str_strincat
+?str_strincpy 0006
 :0000 4d ca 00 00 2d c0 00 00
 +0002
 }
 .big
-{strincpy
+{str_strincpy
 :0000 46 5d 1d ca 00 00 d5
 +0004
 }
 .big
-{strlen
+{str_strlen
 :0000 f8 00 bc ac 4f c2 00 0c 1c c0 00 04 d5
 +0006
 +000a
 }
 .big
-{strncasecmp
-/chartoupper 0002 00
-\chartoupper 0003
-/chartoupper 0007 00
-\chartoupper 0008
+{str_strncasecmp
+?str_dtoupper 0002
+?str_dtoupper 0007
 :0000 4f d4 00 00 73 4d d4 00 00 60 f7 ca 00 1a 2c 8c
 :0010 ca 00 00 9c ca 00 00 ff 00 d5 fc 00 d5
 +000c
@@ -1576,7 +1456,7 @@ v0074
 +0015
 }
 .big
-{strncmp
+{str_strncmp
 :0000 4f 52 4d f7 ca 00 13 2c 8c ca 00 00 9c ca 00 00
 :0010 ff 00 d5 fc 00 d5
 +0005
@@ -1584,34 +1464,128 @@ v0074
 +000e
 }
 .big
-{tolower
-/chartolower 0005 00
-\chartolower 0006
+{str_tolower
+?str_dtolower 0005
 :0000 0f c2 00 0c d4 00 00 5f 1f c0 00 00 d5
 +0002
 +000a
 }
 .big
-{toupper
-/chartoupper 0005 00
-\chartoupper 0006
+{str_toupper
+?str_dtoupper 0005
 :0000 0f c2 00 0c d4 00 00 5f 1f c0 00 00 d5
 +0002
 +000a
 }
 .big
-{trim
+{str_trim
 :0000 4f ff 09 c2 00 00 ff 17 c2 00 00 2f d5
 +0004
 +0009
 }
 .big
-{cls
+{term_background
+:0000 73 d4 03 4b 1b 5b 34 00 60 f0 fa 07 fc 30 d4 03
+:0010 30 f8 6d d4 03 30 d5
+}
+.big
+{term_bright
+:0000 d4 ff 66 1b 5b 31 6d 00 d5
+}
+.big
+{term_cls
 :0000 d4 ff 66 1b 5b 48 1b 5b 32 4a 00 d5
 }
 .big
-{home
+{term_color
+:0000 73 d4 03 4b 1b 5b 33 00 60 f0 fa 07 fc 30 d4 03
+:0010 30 f8 6d d4 03 30 d5
+}
+.big
+{term_currest
+:0000 d4 ff 66 1b 5b 75 00 d5
+}
+.big
+{term_cursave
+:0000 d4 ff 66 1b 5b 73 00 d5
+}
+.big
+{term_dim
+:0000 d4 ff 66 1b 5b 32 6d 00 d5
+}
+.big
+{term_eraseall
+:0000 d4 ff 66 1b 5b 32 4a 00 d5
+}
+.big
+{term_erasedown
+:0000 d4 ff 66 1b 5b 4a 00 d5
+}
+.big
+{term_eraseeol
+:0000 d4 ff 66 1b 5b 4b 00 d5
+}
+.big
+{term_eraseline
+:0000 d4 ff 66 1b 5b 32 4b 00 d5
+}
+.big
+{term_erasesol
+:0000 d4 ff 66 1b 5b 31 4b 00 d5
+}
+.big
+{term_eraseup
+:0000 d4 ff 66 1b 5b 31 4a 00 d5
+}
+.big
+{term_gotoxy
+:0000 f8 00 bd bc 8d 73 9d 73 f8 00 bd f8 36 ad f8 1b
+?int16_itoa 0017
+:0010 5d 1d f8 5b 5d 1d d4 00 00 f8 3b 5d 1d 60 72 bc
+?int16_itoa 0023
+:0020 f0 ac d4 00 00 f8 48 5d 1d f8 00 5d f8 00 bf f8
+:0030 36 af d4 03 33 d5
+>001f
+:0055 00
+^0009 36
+v000c
+^002d 36
+v0030
+}
+.big
+{term_home
 :0000 d4 ff 66 1b 5b 48 00 d5
+}
+.big
+{term_reset
+:0000 d4 ff 66 1b 5b 30 6d 00 d5
+}
+.big
+{term_scroll
+:0000 f8 00 bd bc 8d 73 9d 73 f8 00 bd f8 36 ad f8 1b
+?int16_itoa 0017
+:0010 5d 1d f8 5b 5d 1d d4 00 00 f8 3b 5d 1d 60 72 bc
+?int16_itoa 0023
+:0020 f0 ac d4 00 00 f8 72 5d 1d f8 00 5d f8 00 bf f8
+:0030 36 af d4 03 33 d5
+>001f
+:0055 00
+^0009 36
+v000c
+^002d 36
+v0030
+}
+.big
+{term_scrollall
+:0000 d4 ff 66 1b 5b 72 00 d5
+}
+.big
+{term_scrolldn
+:0000 d4 ff 66 1b 44 00 d5
+}
+.big
+{term_scrollup
+:0000 d4 ff 66 1b 4d 00 d5
 }
 .big
 {buildpath
