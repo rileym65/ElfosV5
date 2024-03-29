@@ -2,20 +2,22 @@ Usage:
   link02 [options] [@ctrlfile] objfile [ objfile ... ]
 
 Command line options:
-         -e - Output as Elf/OS executable (default)
-         -h - Output as RCS hex
-         -b - Output as pure binary
-         -i - Output as Intel hex
-    -l file - Specify library to search
-         -s - Show symbols
+  -e        - Output as Elf/OS executable (default)
+  -h        - Output as RCS hex
+  -b        - Output as pure binary
+  -i        - Output as Intel hex
+  -L path   - Add path to library search path
+  -l file   - Specify library to search
+  -s        - Show symbols
   -O offset - Offset address in intel mode
-    -o file - Output to specified file
+  -o file   - Output to specified file
 
 Note: multiple object files are allowed on the command line
       offset is in hex and can be negative
 
 Control Files:
   add filename         - Add specified object file
+  libpath path         - Add path to library search path
   library filename     - Specify library to search
   mode binary          - Set binary output mode
   mode elfos           - Set Elf/OS output mode
@@ -35,6 +37,7 @@ Object Files:
   .align 128           - Align procedure on 128-byte boundary
   .align page          - Align procedure on page boundary (256 bytes)
   .library filename    - Specify library to search
+  .requires proc       - Require specified proc to be loaded
   :addr bb bb bb ...   - Program bytes
   @addr                - Start address
   ?name addr           - External reference used at addr
