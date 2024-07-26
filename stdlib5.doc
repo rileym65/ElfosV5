@@ -1,0 +1,518 @@
+Section: 16-bit Integers
+------------------------
+
+int16_abs        - Absolute value of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_add        - Add top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_and        - Logical and of top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_atoi       - Convert ASCII to Integer
+  Args:     RF   - Pointer to ASCII number
+  Returns:  RC   - Converted integer
+
+int16_div        - Divide top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+  Notes:         - TOS is the denominator, SOS is the numerator
+
+int16_eq         - Tests if TOS == SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int16_false      - Push false (0) on expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_gt         - Tests if TOS > SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int16_gte        - Tests if TOS >= SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int16_itoa       - Convert integer to ASCII
+  Args:     RC   - Integer value
+            RD   - Buffer for converted ASCII
+
+lfsr_shift       - Shift LFSR 
+  Args:     RC   - Shift count
+  Notes:         - Expects public LFSR_ which is a 4 bytes buffer
+
+int16_lt         - Tests if TOS < SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int16_lte        - Tests if TOS <= SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int16_mod        - Modulo of top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+  Notes:         - TOS is the denominator, SOS is the numerator
+
+int16_mul        - Multiply top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_ne         - Tests if TOS <> SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int16_neg        - Negate top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_or         - Logical or of top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_rnd        - Random number from 0 to TOS-1
+  Args:     R7   - Pointer to expression stack
+
+int16_sgn        - Get sign of top of expression stack
+  Args:     R7   - Pointer to expression stack
+  notes:         - Returns -1 if TOS is negative
+                 - Returns 1 if TOS is positive
+                 - Returns 0 if TOS is zero
+
+int16_sub        - Subtract TOS from SOS
+  Args:     R7   - Pointer to expression stack
+
+int16_tobcd      - Convert binary integer to BCD
+  Args:     RC   - Integer to convert
+            RF   - Where to place the BCD result
+
+int16_true       - Push true (-1) on expression stack
+  Args:     R7   - Pointer to expression stack
+
+int16_xor        - Logical xor of top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+
+
+Section: 32-bit Integers
+------------------------
+
+int32_abs        - Absolute value of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_add        - Add top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_addi       - Add: M[RF] = M[RF] + M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+int32_and        - Logical and of top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_atoi       - Convert ASCII to Integer
+  Args:     RF   - Pointer to ASCII number
+            RD   - Destination pointer
+  Returns:  RF   - First non-numeric character
+            R8:R9- resulting integer
+
+int32_cmp        - Compare top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+  Returns: D=0   - Numbers are the same
+           DF=1  - SOS < TOS
+  Notes:         - D unequal to 0 and DF=0 is SOS > TOS
+
+int32_comp       - Compare M[RF] to M[RD]
+  Args:     R7   - Pointer to expression stack
+  Returns: D=0   - Numbers are the same
+           DF=1  - M[RF] < M[RD]
+  Notes:         - D unequal to 0 and DF=0 is M[RF] > M[RD]
+
+int32_dec        - Decrement value of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_div        - Divide top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+  Notes:         - TOS is the denominator, SOS is the numerator
+
+int32_divi       - Divide: M[RF] = M[RF] / M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+int32_eq         - Tests if TOS == SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int32_false      - Push false (0) on expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_gt         - Tests if TOS > SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int32_gte        - Tests if TOS >= SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int32_icomp      - Compare M[RD] to M[RF]
+  Args:     R7   - Pointer to expression stack
+  Returns: D=0   - Numbers are the same
+           DF=1  - M[RD] < M[RF]
+  Notes:         - D unequal to 0 and DF=0 is M[RD] > M[RF]
+
+int32_itoa       - Convert integer to ASCII
+  Args:     RF   - Pointer to integer value
+            RD   - Buffer for converted ASCII
+
+int32_lt         - Tests if TOS < SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int32_lte        - Tests if TOS <= SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int32_mod        - Modulo of top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+  Notes:         - TOS is the denominator, SOS is the numerator
+
+int32_mul        - Multiply top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_muli       - Multiply: M[RF] = M[RF] * M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+int32_ne         - Tests if TOS <> SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+int32_neg        - 2s compliment 32-bit integer
+  Args:     RA   - Pointer to 32-bit integer
+
+int32_nul        - Set 32-bit integer to zero
+  Args:     RA   - Pointer to 32-bit integer
+
+int32_or         - Logical or of top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_rnd        - Random number from 0 to TOS-1
+  Args:     R7   - Pointer to expression stack
+
+int32_sgn        - Get sign of top of expression stack
+  Args:     R7   - Pointer to expression stack
+  notes:         - Returns -1 if TOS is negative
+                 - Returns 1 if TOS is positive
+                 - Returns 0 if TOS is zero
+
+int32_shl        - Shift 32-bit integer left 1 bit
+  Args:     RA   - Pointer to 32-bit number
+
+int32_shr        - Shift 32-bit integer right 1 bit
+  Args:     RA   - Pointer to 32-bit number
+
+int32_sub        - Subtract TOS from SOS
+  Args:     R7   - Pointer to expression stack
+
+int32_subi       - Subtract: M[RF] = M[RF] - M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+int32_tobcd      - Convert binary integer to BCD
+  Args:     RA:RB- Integer to convert
+            RF   - Where to place the BCD result
+
+int32_true       - Push true (-1) on expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_xor        - Logical xor of top two values of expression stack
+  Args:     R7   - Pointer to expression stack
+
+int32_zero       - Check if 32-bit integer is zero
+  Args      RA   - Pointer to 32-bit integer
+  Returns:  DF=1 - Integer is zero
+            DF=0 - Integer is not zero
+
+Section: Elf/OS
+---------------
+
+buildpath        - Build absolute path
+  Args:     RA   - Pointer to path
+            RF   - Where to put constructed path
+  Returns:  DF=0 - All good
+            DF=1 - Error
+            D    - Error code
+  Notes:         - Memory cell preceeding where RF is pointing needs
+                   to contain $00
+
+
+Section: Floating Point
+-----------------------
+
+fp_abs           - Absolute value of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_add           - Add top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_addi          - Add: M[RF] = M[RF] + M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+fp_ato           - Convert ASCII to floating point
+  Args:     RF   - Pointer to ASCII number
+            RD   - Destination pointer
+
+fp_div           - Divide top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+  Notes:         - TOS is the denominator, SOS is the numerator
+
+fp_divi          - Divide: M[RF] = M[RF] / M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+fp_eq            - Tests if TOS == SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+fp_data          - Constant floating point values
+  fpdot1         - 0.1
+  fp_0           - 0
+  fp_1           - 1.0
+  fp_2           - 2.0
+  fp_10          - 10.0
+  fp_100         - 100.0
+  fp_1000        - 1000.0
+  fp_e           - 2.71828182845
+  fp_pi          - 3.14159265358
+  fp_3           - 3.0
+  fp_dot5        - 0.5
+  fp_halfpi      - 1.57079632679
+
+fp_fromsci       - Convert from ASCII scientific notation
+  Args:     RF   - Pointer to ASCII scientific notation
+            RD   - Pointer to destination
+
+fp_ftoa          - Convert floating point to ASCII
+  Args:     RF   - Pointer to floating point value
+            RD   - Buffer for converted ASCII
+
+fp_ftoi          - Convert floating point to Integer
+  Args:     RF   - Pointer to floating point value
+            RD   - Buffer for converted Integer (4 bytes)
+
+fp_gt            - Tests if TOS > SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+fp_gte           - Tests if TOS >= SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+fp_itof          - Convert Integer to floating point
+  Args:     RF   - Pointer to integer value
+            RD   - Buffer for converted floating point (4 bytes)
+
+fp_lt            - Tests if TOS < SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+fp_lte           - Tests if TOS <= SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+fp_mul           - Multiply top two value of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_muli          - Multiply: M[RF] = M[RF] * M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+fp_ne            - Tests if TOS <> SOS
+  Args:     R7   - Pointer to expression stack
+  Notes:         - Leaves 0 if false or -1 if equal on expr stack
+
+fp_round45       - Perform 4/5 rounding on ASCII floating point
+  Args:     Rf   - Pointer to ASCII floating point value
+
+fp_sgn           - Get sign of top of expression stack
+  Args:     R7   - Pointer to expression stack
+  notes:         - Returns -1 if TOS is negative
+                 - Returns 1 if TOS is positive
+                 - Returns 0 if TOS is zero
+
+fp_sub           - Subtract TOS from SOS
+  Args:     R7   - Pointer to expression stack
+
+fp_subi          - Subtract: M[RF] = M[RF] - M[RD]
+  Notes:         - Numbers in memory are stored LSB first
+
+
+Section: Strings
+----------------
+
+str_dtolower     - Convert character to lowercase
+  Args:      D   - Character to convert
+  Returns:   D   - Converted character
+
+str_dtoupper     - Convert character to uppercase
+  Args:      D   - Character to convert
+  Returns:   D   - Converted character
+
+str_left         - Left portion of string
+  Args:     RF   - Pointer to source string
+            RD   - Pointer to destination buffger
+            RC   - Count of characters
+
+str_mid          - Middle portion of string
+  Args:     RF   - Pointer to source string
+            RD   - Pointer to destination buffger
+            RB   - Starging position
+            RC   - Count of characters
+
+str_right        - Right portion of string
+  Args:     RF   - Pointer to source string
+            RD   - Pointer to destination buffger
+            RC   - Count of characters
+
+str_strcasecmp   - Compare two strings for equal ignoring case
+  Args:     RF   - Pointer to string 1
+            RD   - Pointer to string 2
+  Returns:  DF=1 - Strings are equal
+            DF=0 - Strings are unequal
+            RF   - string 1 after matching portion
+            RD   - String 2 after matching portion
+
+str_strcat       - Copy source string to end of destination string
+  Args:     RF   - Pointer to source string
+            RD   - Pointer to destination string
+
+str_strchr       - Find character in a string
+  Args:     RF   - Pointer to string
+            D    - Character to find
+  Returns:  DF=0 - Character not found
+            DF=1 - Character was found
+            RF   - Pointer to found character
+
+str_strcmp       - Compare two strings for equal
+  Args:     RF   - Pointer to string 1
+            RD   - Pointer to string 2
+  Returns:  DF=1 - Strings are equal
+            DF=0 - Strings are unequal
+            RF   - string 1 after matching portion
+            RD   - String 2 after matching portion
+
+str_strcpy       - Copy source string to destination string
+  Args:     RF   - Pointer to source string
+            RD   - Pointer to destination string
+
+str_strincat     - Copy inline string to end of destination string
+  Args:     RD   - Pointer to destination string
+                 - Source string follows call and must be zero terminated
+
+str_strincpy     - Copy inline string to destination string
+  Args:     RD   - Pointer to destination string
+                 - Source string follows call and must be zero terminated
+
+str_strlen       - Find length of string
+  Args:     RF   - Pointer to string
+  Returns:  RC   - Length of string
+
+str_strncasecmp  - Compare two strings for equal ignoring case
+  Args:     RF   - Pointer to string 1
+            RD   - Pointer to string 2
+            RC   - Count of characters to compare
+  Returns:  DF=1 - Strings are equal
+            DF=0 - Strings are unequal
+            RF   - string 1 after matching portion
+            RD   - String 2 after matching portion
+
+str_strncmp      - Compare two strings for equal
+  Args:     RF   - Pointer to string 1
+            RD   - Pointer to string 2
+            RC   - Count of characters to compare
+  Returns:  DF=1 - Strings are equal
+            DF=0 - Strings are unequal
+            RF   - string 1 after matching portion
+            RD   - String 2 after matching portion
+
+str_tolower      - Convert string to lower case
+  Args:     RF   - Pointer to string
+
+str_toupper      - Convert string to upper case
+  Args:     RF   - Pointer to string
+
+str_trim         - Find first non-whitespace characcter
+  Args:     RF   - Pointer to string
+  Returns:  RF   - Pointer to first non-whitespace character
+
+Section: Terminal
+-----------------
+term_background  - Change background color
+  Args:      D   - Color (uses vt100 color codes)
+
+term_bright      - Turn on bright attribute
+
+term_cls         - Move cursor to home position and clear screen
+
+term_color       - Change foreground color
+  Args:      D   - Color (uses vt100 color codes)
+  
+term_currest     - Restore cursor
+
+term_cursave     - Save cursor
+
+term_dim         - Turn off bright attribute
+
+term_eraseall    - Erase screen, does not move cursor
+
+term_erasedown   - Erase from current line down
+
+term_eraseeol    - Erase from cursor to end of line
+
+term_eraseline   - Erase current line
+
+term_erasesol    - Erase from start of line to cursor
+
+term_eraseup     - Erase from current line up
+
+term_gotoxy      - Position cursor
+  Args:     RC   - Row
+  Args:     RD   - Column
+
+term_home        - Move cursor to home position
+
+term_reset       - Reset terminal attributes
+
+term_scroll      - Set scrolling region
+  Args:     RC   - Start line
+            RD   - End line
+
+term_scrollall   - Set scroll region to entire screen
+
+term_scrolldn    - Scroll scroll region down
+
+term_scrollup    - Scroll scroll region up
+
+
+Section: Trig functions
+-----------------------
+
+fp_acos          - arccos of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_asin          - arcsin of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_atan          - arctan of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_cos           - cos of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_exp           - natrual exp of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_ln            - natrual logarithmp of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_pow           - TOS to the power of SOS
+  Args:     R7   - Pointer to expression stack
+
+fp_sin           - sin of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_sqrt          - square root of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
+fp_tan           - tan of top of expression stack
+  Args:     R7   - Pointer to expression stack
+
